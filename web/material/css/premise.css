@@ -1,0 +1,108 @@
+body {
+  text-align: center;
+  background-color: #F0EFED; }
+  body .page .ui-content .qr-code {
+    background-color: #B8CD53;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    text-align: center;
+    padding-bottom: 5px; }
+    body .page .ui-content .qr-code .qr-pic-wrapper {
+      margin-top: 10px; }
+      body .page .ui-content .qr-code .qr-pic-wrapper .qr-pic {
+        margin-top: 15px;
+        width: 115px;
+        height: 115px; }
+    body .page .ui-content .qr-code .description {
+      font-size: small;
+      border-radius: 8px;
+      border: #FFFFFD solid 1px;
+      margin: 25px 10% 5px 10%; }
+      body .page .ui-content .qr-code .description h3 {
+        color: #FFFFFD;
+        margin: -10px auto 10px auto;
+        font-size: 15px;
+        font-weight: bold;
+        background-color: #B8CD53;
+        width: 150px;
+        padding: 0 15px; }
+      body .page .ui-content .qr-code .description p {
+        margin: 0 auto;
+        padding: 2px 15px;
+        font-size: 9px;
+        font-weight: lighter; }
+      body .page .ui-content .qr-code .description .desc-qr-method {
+        text-align: left;
+        color: #FFFFFD; }
+  body .page .ui-content .approach-money {
+    padding-top: 10px;
+    padding-bottom: 15px;
+    background-color: #0099A2;
+    color: #FFFFFD;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px; }
+    body .page .ui-content .approach-money .slogan {
+      font-weight: bold; }
+      body .page .ui-content .approach-money .slogan .slogan-company {
+        font-size: 19px; }
+      body .page .ui-content .approach-money .slogan .slogan-theme {
+        font-size: 22px; }
+    body .page .ui-content .approach-money .earn-money-details {
+      margin-top: 8px;
+      font-weight: lighter;
+      font-size: 13px; }
+      body .page .ui-content .approach-money .earn-money-details .earn-money-method-desc {
+        padding-bottom: 3px; }
+  body .page .ui-content .price {
+    background-color: #E58534;
+    border-radius: 5px;
+    line-height: 25px;
+    margin-top: 3px;
+    color: #FFFFFD; }
+    body .page .ui-content .price .price-premise {
+      float: left;
+      vertical-align: center;
+      font-size: 11px;
+      margin-left: 10px;
+      line-height: 25px; }
+    body .page .ui-content .price .avg-price {
+      font-size: 16px;
+      line-height: 25px; }
+    body .page .ui-content .price .status {
+      float: right;
+      vertical-align: center;
+      font-size: 11px;
+      margin-right: 10px;
+      line-height: 25px; }
+  body .page .ui-content .premise-pic-area {
+    margin-top: 2px;
+    height: 160px;
+    width: 100%;
+    border-radius: 5px; }
+    body .page .ui-content .premise-pic-area .premise-pic {
+      width: 100%;
+      height: 100%;
+      border-radius: 5px; }
+  body .page .ui-content .coupon {
+    margin-top: 3px;
+    background-color: #F1656B;
+    color: #FFFFFD;
+    border-radius: 5px; }
+    body .page .ui-content .coupon .title {
+      font-weight: bold;
+      font-size: 19px; }
+    body .page .ui-content .coupon h3 {
+      color: #FFFFFD;
+      margin: 1px auto 1px auto;
+      font-weight: bold;
+      padding: 2px auto 2px auto; }
+    body .page .ui-content .coupon p {
+      margin: 0 auto;
+      padding: 2px auto;
+      font-size: 13px;
+      font-weight: lighter; }
+    body .page .ui-content .coupon .detail {
+      font-size: 15px;
+      font-weight: lighter; }
+
+/*# sourceMappingURL=premise.css.map */

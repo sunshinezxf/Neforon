@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="guidance">
+    <resultMap id="guidance" type="neforon.sunshine.vo.GuidanceItemVo">
+        <result property="title" column="t.qr_guidance_title_name"/>
+        <result property="description" column="c.qr_guidance_content"/>
+        <result property="step" column="c.qr_guidance_content_step"/>
+    </resultMap>
+
+    <!-- 查询用户扫码步骤 -->
+    <select id="queryGuidance" resultMap="guidance">
+        SELECT t.qr_guidance_title_name, c.qr_guidance_content_step, c.qr_guidance_content
+        FROM qr_guidance_title t, qr_guidance_content c
+        WHERE t.qr_guidance_title_id = c.qr_guidance_title_id;
+    </select>
+</mapper>
