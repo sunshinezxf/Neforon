@@ -9,6 +9,8 @@ import java.util.List;
  * Created by sunshine on 4/9/15.
  */
 public class NullPremiseVo extends PremiseVo {
+    private final String PREMISE_NAME = "万科·新都会";
+
     private final String QR_CODE_PATH = "/material/qrcode/example.png";
 
     private final String GUIDANCE_TITLE = "二维码内扫加关注方法";
@@ -17,6 +19,7 @@ public class NullPremiseVo extends PremiseVo {
 
     public NullPremiseVo() {
         super();
+        premiseName = PREMISE_NAME;
         qrCode = QR_CODE_PATH;
         guidanceTitle = GUIDANCE_TITLE;
         guidanceDetail = GUIDANCE_DETAILS;

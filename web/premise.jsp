@@ -13,7 +13,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="${path.concat('/material/css/premise.css')}">
-    <title>AWifi广告页</title>
+    <title>${premise.premiseName}</title>
 </head>
 <body>
 <div class="page">
@@ -58,7 +58,6 @@
         <!-- 卖点展示区域 -->
         <div class="selling-characters">
             <div class="selling-character-desc"></div>
-
         </div>
         <!-- 卖点展示区域结束 -->
     </div>

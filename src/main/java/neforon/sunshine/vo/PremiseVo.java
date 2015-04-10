@@ -7,6 +7,8 @@ import java.util.List;
  * Created by sunshine on 4/9/15.
  */
 public class PremiseVo {
+    protected String premiseName;
+
     protected String qrCode;
 
     protected String guidanceTitle;
@@ -14,6 +16,7 @@ public class PremiseVo {
     protected List<String> guidanceDetail;
 
     public PremiseVo() {
+        premiseName = "";
         qrCode = "";
         guidanceTitle = "";
         guidanceDetail = new ArrayList<String>();
@@ -25,6 +28,14 @@ public class PremiseVo {
         for (String item : methods) {
             guidanceDetail.add(item);
         }
+    }
+
+    public String getPremiseName() {
+        return premiseName;
+    }
+
+    public void setPremiseName(String premiseName) {
+        this.premiseName = premiseName;
     }
 
     public String getQrCode() {
