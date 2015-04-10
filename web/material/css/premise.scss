@@ -1,0 +1,209 @@
+body {
+  text-align: center;
+  background-color: #F0EFED;
+  .page {
+    .ui-content {
+      .qr-code {
+        background-color: #B8CD53;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        text-align: center;
+        padding-bottom: 5px;
+        .qr-pic-wrapper {
+          margin-top: 10px;
+          .qr-pic {
+            margin-top: 15px;
+            width: 115px;
+            height: 115px;
+          }
+        }
+        .description {
+          font-size: small;
+          border-radius: 8px;
+          border: #FFFFFD solid 1px;
+          margin: 25px 8% 5px 8%;
+          padding-bottom: 3px;
+          h3 {
+            color: #FFFFFD;
+            margin: -10px auto 10px auto;
+            font-size: 15px;
+            font-weight: bold;
+            background-color: #B8CD53;
+            width: 160px;
+            padding: 0 15px;
+          }
+          p {
+            margin: 0 auto;
+            padding: 2px 15px;
+            font-size: 9px;
+            font-weight: lighter;
+          }
+          .desc-qr-method {
+            text-align: left;
+            color: #FFFFFD;
+          }
+        }
+      }
+      .approach-money {
+        padding-top: 10px;
+        padding-bottom: 15px;
+        background-color: #0099A2;
+        color: #FFFFFD;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        .slogan {
+          font-weight: bold;
+          .slogan-company {
+            font-size: 19px;
+          }
+          .slogan-theme {
+            font-size: 22px;
+          }
+        }
+        .earn-money-details {
+          margin-top: 8px;
+          font-weight: lighter;
+          font-size: 13px;
+          .earn-money-method-desc {
+            padding-bottom: 3px;
+          }
+        }
+      }
+      .price {
+        background-color: #E58534;
+        border-radius: 5px;
+        line-height: 25px;
+        margin-top: 3px;
+        color: #FFFFFD;
+        .price-premise {
+          float: left;
+          vertical-align: center;
+          font-size: 11px;
+          margin-left: 10px;
+          line-height: 25px;
+        }
+        .avg-price {
+          font-size: 16px;
+          line-height: 25px;
+        }
+        .status {
+          float: right;
+          vertical-align: center;
+          font-size: 11px;
+          margin-right: 10px;
+          line-height: 25px;
+        }
+      }
+
+      .premise-pic-area {
+        margin-top: 2px;
+        height: 160px;
+        width: 100%;
+        border-radius: 5px;
+        .premise-pic {
+          width: 100%;
+          height: 100%;
+          border-radius: 5px;
+        }
+      }
+
+      .coupon {
+        margin-top: 3px;
+        background-color: #F1656B;
+        color: #FFFFFD;
+        border-radius: 5px;
+        .title {
+          font-weight: bold;
+          font-size: 19px;
+        }
+        h3 {
+          color: #FFFFFD;
+          margin: 1px auto 1px auto;
+          font-weight: bold;
+          padding: 2px auto 2px auto;
+        }
+        p {
+          margin: 0 auto;
+          padding: 2px auto;
+          font-size: 13px;
+          font-weight: lighter;
+        }
+        .detail {
+          font-size: 15px;
+          font-weight: lighter;
+        }
+      }
+
+      .selling-characters {
+        margin-top: 6px;
+        border-radius: 5px;
+        text-align: left;
+        background-color: #5CB3DF;
+        color: white;
+        .sell-header {
+          padding-top: 6px;
+          img {
+            float: left;
+            width: 23px;
+            height: 23px;
+            margin-left: 10px;
+            vertical-align: text-bottom;
+          }
+          .sell-title {
+            font-size: 18px;
+            font-weight: bolder;
+          }
+          span {
+
+          }
+        }
+        .selling-character-desc {
+          line-height: 25px;
+        }
+        ul {
+          padding-left: 35px;
+          margin: 8px auto;
+          li {
+            margin-right: 8px;
+          }
+        }
+      }
+
+      .premise-type {
+        margin-top: 8px;
+        background-color: #FFFFFF;
+        border-radius: 5px;
+        .premise-type-header {
+          padding-top: 6px;
+          text-align: left;
+          .header-pic {
+            float: left;
+            width: 23px;
+            height: 23px;
+            margin-left: 10px;
+            vertical-align: text-bottom;
+          }
+          .header {
+            font-size: 18px;
+            font-weight: bold;
+          }
+        }
+        img {
+          width: 100%;
+          height: 100%;
+        }
+        .type-pic {
+          width: 100%;
+          height: auto;
+        }
+        .project-address {
+          color: #9D9B9C;
+          .address {
+            font-size: 13px;
+            font-weight: lighter;
+          }
+        }
+      }
+    }
+  }
+}
