@@ -53,12 +53,14 @@
         </div>
         <!-- 赚钱的方法可真多区域结束 -->
 
-
-        <!-- 卖点展示区域 -->
-        <div class="selling-characters">
-            <div class="selling-character-desc"></div>
+        <!-- 楼盘均价 -->
+        <div class="price">
+            <span class="price-premise">万科·新都会</span>
+            <span class="avg-price">均价21000元/平方米</span>
+            <span class="status">开盘热销中</span>
         </div>
-        <!-- 卖点展示区域结束 -->
+        <!-- 楼盘均价结束 -->
+
     </div>
 </div>
 </body>
