@@ -15,11 +15,27 @@ public class PremiseVo {
 
     protected List<String> guidanceDetail;
 
+    protected String earnCompany;
+
+    protected String earnSlogan;
+
+    protected List<String> earnMethods;
+
     public PremiseVo() {
+        /* 页面显示楼盘的名称 */
         premiseName = "";
+
+        /* 二维码的路径 */
         qrCode = "";
+
+        /* 二维码的扫描指南 */
         guidanceTitle = "";
         guidanceDetail = new ArrayList<String>();
+
+        /* 赚钱的方法可真多的标题、副标题、内容 */
+        earnCompany = "";
+        earnSlogan = "";
+        earnMethods = new ArrayList<String>();
     }
 
     public void setGuidance(GuidanceVo guidance) {
@@ -27,6 +43,15 @@ public class PremiseVo {
         String[] methods = guidance.getMethodDetails();
         for (String item : methods) {
             guidanceDetail.add(item);
+        }
+    }
+
+    public void setEarnMoney(EarnMoneyVo earnMoney) {
+        earnCompany = earnMoney.getEarnCompany();
+        earnSlogan = earnMoney.getEarnSlogan();
+        String[] methods = earnMoney.getEarnMethods();
+        for (String item : methods) {
+            earnMethods.add(item);
         }
     }
 
@@ -60,5 +85,29 @@ public class PremiseVo {
 
     public void setGuidanceDetail(List<String> guidanceDetail) {
         this.guidanceDetail = guidanceDetail;
+    }
+
+    public String getEarnCompany() {
+        return earnCompany;
+    }
+
+    public void setEarnCompany(String earnCompany) {
+        this.earnCompany = earnCompany;
+    }
+
+    public String getEarnSlogan() {
+        return earnSlogan;
+    }
+
+    public void setEarnSlogan(String earnSlogan) {
+        this.earnSlogan = earnSlogan;
+    }
+
+    public List<String> getEarnMethods() {
+        return earnMethods;
+    }
+
+    public void setEarnMethods(List<String> earnMethods) {
+        this.earnMethods = earnMethods;
     }
 }

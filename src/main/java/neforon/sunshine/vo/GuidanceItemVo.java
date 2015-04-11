@@ -9,7 +9,9 @@ public class GuidanceItemVo {
     private String description;
 
     public GuidanceItemVo() {
-
+        title = "";
+        step = 0;
+        description = "";
     }
 
     public GuidanceItemVo(String title, String description, Integer step) {
