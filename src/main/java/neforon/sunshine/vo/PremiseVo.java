@@ -21,6 +21,12 @@ public class PremiseVo {
 
     protected List<String> earnMethods;
 
+    protected String companyName;
+
+    protected Integer avgPrice;
+
+    protected String activityStatus;
+
     public PremiseVo() {
         /* 页面显示楼盘的名称 */
         premiseName = "";
@@ -36,6 +42,11 @@ public class PremiseVo {
         earnCompany = "";
         earnSlogan = "";
         earnMethods = new ArrayList<String>();
+
+        /* 活动的楼盘 */
+        companyName = "";
+        avgPrice = 0;
+        activityStatus = "";
     }
 
     public void setGuidance(GuidanceVo guidance) {
@@ -109,5 +120,29 @@ public class PremiseVo {
 
     public void setEarnMethods(List<String> earnMethods) {
         this.earnMethods = earnMethods;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public Integer getAvgPrice() {
+        return avgPrice;
+    }
+
+    public void setAvgPrice(Integer avgPrice) {
+        this.avgPrice = avgPrice;
+    }
+
+    public String getActivityStatus() {
+        return activityStatus;
+    }
+
+    public void setActivityStatus(String activityStatus) {
+        this.activityStatus = activityStatus;
     }
 }

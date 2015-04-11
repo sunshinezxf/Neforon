@@ -23,6 +23,12 @@ public class NullPremiseVo extends PremiseVo {
 
     private final List<String> EARN_METHODS = getEarnMethodList();
 
+    private final String COMPANY_NAME = "万科·新都会";
+
+    private final Integer AVG_PRICE = 21000;
+
+    private final String ACTIVITY_STATUS = "开盘热销中";
+
     public NullPremiseVo() {
         super();
 
@@ -36,6 +42,10 @@ public class NullPremiseVo extends PremiseVo {
         earnCompany = EARN_COMPANY;
         earnSlogan = EARN_SLOGAN;
         earnMethods = EARN_METHODS;
+
+        companyName = COMPANY_NAME;
+        avgPrice = AVG_PRICE;
+        activityStatus = ACTIVITY_STATUS;
     }
 
     private static List<String> getDefaultDetail() {
