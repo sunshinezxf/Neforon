@@ -4,8 +4,8 @@ import neforon.sunshine.guidance.dao.GuidanceDao;
 import neforon.sunshine.guidance.service.GuidanceService;
 import neforon.sunshine.utils.ResponseCode;
 import neforon.sunshine.utils.ResultData;
-import neforon.sunshine.vo.GuidanceItemVo;
-import neforon.sunshine.vo.GuidanceVo;
+import neforon.sunshine.guidance.vo.GuidanceItemVo;
+import neforon.sunshine.guidance.vo.GuidanceVo;
 import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;

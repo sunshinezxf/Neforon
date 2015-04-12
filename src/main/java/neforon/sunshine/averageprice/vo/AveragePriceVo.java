@@ -1,4 +1,4 @@
-package neforon.sunshine.vo;
+package neforon.sunshine.averageprice.vo;
 
 /**
  * Created by sunshine on 4/11/15.

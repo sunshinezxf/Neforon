@@ -1,7 +1,7 @@
 package neforon.sunshine.guidance.dao;
 
 
-import neforon.sunshine.vo.GuidanceItemVo;
+import neforon.sunshine.guidance.vo.GuidanceItemVo;
 
 import java.util.List;
 

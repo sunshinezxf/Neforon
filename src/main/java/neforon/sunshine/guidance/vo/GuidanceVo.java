@@ -1,4 +1,4 @@
-package neforon.sunshine.vo;
+package neforon.sunshine.guidance.vo;
 
 import java.util.List;
 

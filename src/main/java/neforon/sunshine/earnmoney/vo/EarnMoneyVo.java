@@ -1,4 +1,6 @@
-package neforon.sunshine.vo;
+package neforon.sunshine.earnmoney.vo;
+
+import neforon.sunshine.earnmoney.vo.EarnMoneyItemVo;
 
 import java.util.List;
 

@@ -55,11 +55,56 @@
 
         <!-- 楼盘均价 -->
         <div class="price">
-            <span class="price-premise">万科·新都会</span>
-            <span class="avg-price">均价21000元/平方米</span>
-            <span class="status">开盘热销中</span>
+            <span class="price-premise">${premise.companyName}</span>
+            <span class="avg-price">均价${premise.avgPrice}元/平方米</span>
+            <span class="status">${premise.activityStatus}</span>
         </div>
         <!-- 楼盘均价结束 -->
+
+        <!-- 楼盘图片展示区域 -->
+        <div class="premise-pic-area">
+            <img class="premise-pic" src="${path}${premise.premisePic}"/>
+        </div>
+        <!-- 楼盘图片展示区域结束-->
+
+        <!-- 优惠展示区域 -->
+        <div class="coupon">
+            <h3 class="title">${premise.couponTitle}</h3>
+
+            <p class="detail">${premise.couponDetail}</p>
+        </div>
+        <!-- 优惠区域结束-->
+
+        <!-- 卖点展示区域 -->
+        <div class="selling-characters">
+            <div class="sell-header">
+                <img class="sell-house" src="${path.concat('/material/img/house.png')}"/>
+                <span class="sell-title">楼盘介绍</span>
+            </div>
+
+            <ul class="selling-character-desc">
+                <c:forEach var="item" items="${premise.premiseAdvantages}">
+                    <li><c:out value="${item}"></c:out>。</li>
+                </c:forEach>
+            </ul>
+            <br/>
+        </div>
+        <!-- 卖点展示区域结束 -->
+
+        <!-- 户型展示区域 -->
+        <div class="premise-type">
+            <div class="premise-type-header">
+                <img class="header-pic" src="${path.concat('/material/img/wheel.png')}"/>
+                <span class="header">户型鉴赏</span>
+            </div>
+            <img class="type-pic" src="${path}${premise.houseTypePic}"/>
+
+            <div class="project-address">
+                <p class="address">${premise.projectAddress}</p>
+            </div>
+            <br>
+        </div>
+        <!-- 户型展示区域结束 -->
 
     </div>
 </div>

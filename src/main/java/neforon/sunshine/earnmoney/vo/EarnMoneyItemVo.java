@@ -1,4 +1,4 @@
-package neforon.sunshine.vo;
+package neforon.sunshine.earnmoney.vo;
 
 /**
  * Created by sunshine on 4/10/15.

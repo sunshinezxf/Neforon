@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="guidance">
-    <resultMap id="guidance" type="neforon.sunshine.vo.GuidanceItemVo">
+    <resultMap id="guidance" type="neforon.sunshine.guidance.vo.GuidanceItemVo">
         <result property="title" column="t.qr_guidance_title_name"/>
         <result property="description" column="c.qr_guidance_content"/>
         <result property="step" column="c.qr_guidance_content_step"/>

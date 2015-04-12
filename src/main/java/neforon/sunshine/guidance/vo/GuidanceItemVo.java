@@ -1,4 +1,4 @@
-package neforon.sunshine.vo;
+package neforon.sunshine.guidance.vo;
 
 /**
  * Created by sunshine on 4/8/15.
