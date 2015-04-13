@@ -8,5 +8,9 @@
         <mapper resource="neforon/sunshine/mapper/qrcode.xml"/>
         <mapper resource="neforon/sunshine/mapper/guidance.xml"/>
         <mapper resource="neforon/sunshine/mapper/earnmoney.xml"/>
+        <mapper resource="neforon/sunshine/mapper/price.xml"/>
+        <mapper resource="neforon/sunshine/mapper/premiseview.xml"/>
+        <mapper resource="neforon/sunshine/mapper/coupon.xml"/>
+        <mapper resource="neforon/sunshine/mapper/premiseadvantage.xml"/>
     </mappers>
 </configuration>

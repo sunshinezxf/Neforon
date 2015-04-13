@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="coupon">
+    <resultMap id="coupon" type="neforon.sunshine.coupon.vo.CouponVo">
+        <result property="couponTitle" column="coupon_title"></result>
+        <result property="couponDetail" column="coupon_detail"></result>
+    </resultMap>
+
+    <!-- 根据ID查询到优惠信息 -->
+    <select id="selectCoupon" resultMap="coupon">
+        SELECT coupon_title, coupon_detail
+        FROM coupon
+        WHERE project_id=#{projectId};
+    </select>
+</mapper>

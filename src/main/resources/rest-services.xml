@@ -11,4 +11,13 @@
     <bean id="guidanceService" class="neforon.sunshine.guidance.service.impl.GuidanceServiceImpl"></bean>
 
     <bean id="earnMoneyService" class="neforon.sunshine.earnmoney.service.impl.EarnMoneyServiceImpl"></bean>
+
+    <bean id="averagePriceService" class="neforon.sunshine.averageprice.service.impl.AveragePriceServiceImpl"></bean>
+
+    <bean id="premiseViewService" class="neforon.sunshine.premiseview.service.impl.PremiseViewServiceImpl"></bean>
+
+    <bean id="couponService" class="neforon.sunshine.coupon.service.impl.CouponServiceImpl"></bean>
+
+    <bean id="premiseAdvantageService"
+          class="neforon.sunshine.buildingintro.service.impl.PremiseAdvantageServiceImpl"></bean>
 </beans>

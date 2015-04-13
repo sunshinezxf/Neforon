@@ -19,4 +19,20 @@
     <bean id="earnMoneyDao" class="neforon.sunshine.earnmoney.dao.impl.EarnMoneyDaoImpl">
         <property name="sqlSession" ref="sqlSession"/>
     </bean>
+
+    <bean id="averagePriceDao" class="neforon.sunshine.averageprice.dao.impl.AveragePriceDaoImpl">
+        <property name="sqlSession" ref="sqlSession"/>
+    </bean>
+
+    <bean id="premiseViewDao" class="neforon.sunshine.premiseview.dao.impl.PremiseViewDaoImpl">
+        <property name="sqlSession" ref="sqlSession"/>
+    </bean>
+
+    <bean id="couponDao" class="neforon.sunshine.coupon.dao.impl.CouponDaoImpl">
+        <property name="sqlSession" ref="sqlSession"/>
+    </bean>
+
+    <bean id="premiseAdvantageDao" class="neforon.sunshine.buildingintro.dao.impl.PremiseAdvantageDaoImpl">
+        <property name="sqlSession" ref="sqlSession"/>
+    </bean>
 </beans>

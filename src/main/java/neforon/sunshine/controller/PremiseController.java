@@ -1,9 +1,17 @@
 package neforon.sunshine.controller;
 
+import neforon.sunshine.averageprice.facade.AveragePriceFacade;
+import neforon.sunshine.averageprice.vo.AveragePriceVo;
+import neforon.sunshine.buildingintro.facade.PremiseAdvantageFacade;
+import neforon.sunshine.buildingintro.vo.PremiseAdvantageVo;
+import neforon.sunshine.coupon.facade.CouponFacade;
+import neforon.sunshine.coupon.vo.CouponVo;
 import neforon.sunshine.earnmoney.facade.EarnMoneyFacade;
 import neforon.sunshine.earnmoney.vo.EarnMoneyVo;
 import neforon.sunshine.guidance.facade.GuidanceFacade;
 import neforon.sunshine.guidance.vo.GuidanceVo;
+import neforon.sunshine.premiseview.facade.PremiseViewFacade;
+import neforon.sunshine.premiseview.vo.PremiseViewVo;
 import neforon.sunshine.project.facade.ProjectFacade;
 import neforon.sunshine.project.vo.ProjectVo;
 import neforon.sunshine.qrcode.facade.CodeFacade;
@@ -39,6 +47,18 @@ public class PremiseController {
     @Autowired
     private EarnMoneyFacade earnMoneyFacade;
 
+    @Autowired
+    private AveragePriceFacade averagePriceFacade;
+
+    @Autowired
+    private PremiseViewFacade premiseViewFacade;
+
+    @Autowired
+    private CouponFacade couponFacade;
+
+    @Autowired
+    private PremiseAdvantageFacade premiseAdvantageFacade;
+
     @RequestMapping(method = RequestMethod.GET, value = URLConst.NEFORON_PREMISE)
     public ModelAndView queryPremise(HttpServletRequest request, HttpServletResponse response, @PathVariable String projectId) {
         ModelAndView view = new ModelAndView();
@@ -58,15 +78,37 @@ public class PremiseController {
         ResultData guidanceMessage = guidanceFacade.queryGuidance(projectId);
         if (guidanceMessage.getStatusCode() == ResponseCode.MESSAGE_OK) {
             GuidanceVo guidance = guidanceMessage.getData();
-            String guidanceTitle = guidance.getTitle();
             premiseVo.setGuidance((GuidanceVo) guidanceMessage.getData());
         }
 
         ResultData earnMoneyMessage = earnMoneyFacade.queryEarnMoney(projectId);
         if (earnMoneyMessage.getStatusCode() == ResponseCode.MESSAGE_OK) {
             EarnMoneyVo earnMoney = earnMoneyMessage.getData();
-            String title = earnMoney.getEarnCompany();
             premiseVo.setEarnMoney(earnMoney);
+        }
+
+        ResultData averagePirceMessage = averagePriceFacade.queryAveragePrice(projectId);
+        if (averagePirceMessage.getStatusCode() == ResponseCode.MESSAGE_OK) {
+            AveragePriceVo averagePrice = averagePirceMessage.getData();
+            premiseVo.setAveragePrice(averagePrice);
+        }
+
+        ResultData premiseViewMessage = premiseViewFacade.queryPremiseView(projectId);
+        if (premiseViewMessage.getStatusCode() == ResponseCode.MESSAGE_OK) {
+            PremiseViewVo premiseView = premiseViewMessage.getData();
+            premiseVo.setPremiseView(premiseView);
+        }
+
+        ResultData couponMessage = couponFacade.queryCoupon(projectId);
+        if (couponMessage.getStatusCode() == ResponseCode.MESSAGE_OK) {
+            CouponVo coupon = couponMessage.getData();
+            premiseVo.setCoupon(coupon);
+        }
+
+        ResultData premiseAdvantageMessage = premiseAdvantageFacade.queryPremiseAdvantage(projectId);
+        if (premiseAdvantageMessage.getStatusCode() == ResponseCode.MESSAGE_OK) {
+            PremiseAdvantageVo premiseAdvantage = premiseAdvantageMessage.getData();
+            premiseVo.setPremiseAdvantages(premiseAdvantage);
         }
 
         view.setViewName("premise");

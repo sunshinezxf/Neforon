@@ -13,7 +13,7 @@ public class NullPremiseVo extends PremiseVo {
 
     private final String QR_CODE_PATH = "/material/qrcode/example.png";
 
-    private final String GUIDANCE_TITLE = "二维码内扫加关注方法";
+    private final String GUIDANCE_TITLE = "内扫二维码加入万科粉丝团";
 
     private final List<String> GUIDANCE_DETAILS = getDefaultDetail();
 

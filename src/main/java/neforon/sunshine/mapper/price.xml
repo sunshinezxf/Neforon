@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="price">
+    <resultMap id="price" type="neforon.sunshine.averageprice.vo.AveragePriceVo">
+        <result property="companyName" column="company_name"></result>
+        <result property="averagePrice" column="avg_price"></result>
+        <result property="activityState" column="activity_state"></result>
+    </resultMap>
+
+    <!-- 根据项目ID查询均价活动 -->
+    <select id="selectAvgPrice" resultMap="price">
+        SELECT company_name, avg_price, activity_state
+        FROM avgprice
+        WHERE project_id=#{projectId};
+    </select>
+</mapper>

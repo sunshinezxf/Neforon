@@ -11,4 +11,13 @@
     <bean id="guidanceFacade" class="neforon.sunshine.guidance.facade.impl.GuidanceFacadeImpl"></bean>
 
     <bean id="earnMoneyFacade" class="neforon.sunshine.earnmoney.facade.impl.EarnMoneyFacadeImpl"></bean>
+
+    <bean id="averagePriceFacade" class="neforon.sunshine.averageprice.facade.impl.AveragePriceFacadeImpl"></bean>
+
+    <bean id="premiseViewFacade" class="neforon.sunshine.premiseview.facade.impl.PremiseViewFacadeImpl"></bean>
+
+    <bean id="couponFacade" class="neforon.sunshine.coupon.facade.impl.CouponFacadeImpl"></bean>
+
+    <bean id="premiseAdvantageFacade"
+          class="neforon.sunshine.buildingintro.facade.impl.PremiseAdvantageFacadeImpl"></bean>
 </beans>
