@@ -7,6 +7,8 @@ import neforon.sunshine.earnmoney.vo.EarnMoneyVo;
 import neforon.sunshine.guidance.vo.GuidanceVo;
 import neforon.sunshine.housetype.vo.HouseTypeVo;
 import neforon.sunshine.premiseview.vo.PremiseViewVo;
+import neforon.sunshine.project.vo.ProjectVo;
+import neforon.sunshine.qrcode.vo.QRCodeVo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -83,10 +85,21 @@ public class PremiseVo {
         projectAddress = "";
     }
 
+    public void setProject(ProjectVo project) {
+        premiseName = project.getProjectName();
+    }
+
+    public void setCode(QRCodeVo code) {
+        qrCode = code.getqRCodePath();
+    }
+
     public void setGuidance(GuidanceVo guidance) {
         guidanceTitle = guidance.getTitle();
         String[] methods = guidance.getMethodDetails();
         for (String item : methods) {
+            if (item == null || item.equals("")) {
+                continue;
+            }
             guidanceDetail.add(item);
         }
     }
@@ -96,6 +109,9 @@ public class PremiseVo {
         earnSlogan = earnMoney.getEarnSlogan();
         String[] methods = earnMoney.getEarnMethods();
         for (String item : methods) {
+            if (item == null || item.equals("")) {
+                continue;
+            }
             earnMethods.add(item);
         }
     }
@@ -118,6 +134,9 @@ public class PremiseVo {
     public void setPremiseAdvantages(PremiseAdvantageVo premiseAdvantage) {
         String[] advantages = premiseAdvantage.getPremiseAdvantages();
         for (String item : advantages) {
+            if (item == null || item.equals("")) {
+                continue;
+            }
             premiseAdvantages.add(item);
         }
     }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project">
+    <resultMap id="project" type="neforon.sunshine.project.vo.ProjectVo">
+        <result property="projectName" column="project_name"></result>
+    </resultMap>
+
+    <!-- 根据project的ID查询到项目的名称 -->
+    <select id="selectProject" resultMap="project">
+        SELECT project_name
+        FROM project
+        WHERE project_id=#{projectId};
+    </select>
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="earnmoney">
+    <resultMap id="earnmoney" type="neforon.sunshine.earnmoney.vo.EarnMoneyItemVo">
+        <result property="earnCompany" column="earncompany"></result>
+        <result property="earnSlogan" column="earnslogan"></result>
+        <result property="methodDesc" column="methoddesc"></result>
+        <result property="step" column="step"></result>
+    </resultMap>
+
+    <!-- 根据项目的id查询赚钱的方法 -->
+    <select id="selectEarnMoney" resultMap="earnmoney">
+        SELECT earncompany, earnslogan, methoddesc, step
+        FROM earn
+        WHERE project_id=#{projectId};
+    </select>
+</mapper>

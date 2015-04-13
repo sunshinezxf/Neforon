@@ -6,5 +6,5 @@ import neforon.sunshine.utils.ResultData;
  * Created by sunshine on 4/8/15.
  */
 public interface GuidanceFacade {
-    public ResultData queryGuidance();
+    public ResultData queryGuidance(String projectId);
 }

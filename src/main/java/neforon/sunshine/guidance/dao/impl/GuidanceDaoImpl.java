@@ -1,8 +1,8 @@
 package neforon.sunshine.guidance.dao.impl;
 
 import neforon.sunshine.guidance.dao.GuidanceDao;
-import neforon.sunshine.utils.BaseDao;
 import neforon.sunshine.guidance.vo.GuidanceItemVo;
+import neforon.sunshine.utils.BaseDao;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import java.util.List;
 public class GuidanceDaoImpl extends BaseDao implements GuidanceDao {
 
     @Override
-    public List<GuidanceItemVo> queryQRGuidance() {
-        return sqlSession.selectList("guidance.queryGuidance");
+    public List<GuidanceItemVo> selectQRGuidanceById(String projectId) {
+        return sqlSession.selectList("guidance.selectGuidance", projectId);
     }
 }

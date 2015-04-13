@@ -4,7 +4,19 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
 
+    <bean id="projectDao" class="neforon.sunshine.project.dao.impl.ProjectDaoImpl">
+        <property name="sqlSession" ref="sqlSession"/>
+    </bean>
+
+    <bean id="codeDao" class="neforon.sunshine.qrcode.dao.impl.CodeDaoImpl">
+        <property name="sqlSession" ref="sqlSession"/>
+    </bean>
+
     <bean id="guidanceDao" class="neforon.sunshine.guidance.dao.impl.GuidanceDaoImpl">
+        <property name="sqlSession" ref="sqlSession"/>
+    </bean>
+
+    <bean id="earnMoneyDao" class="neforon.sunshine.earnmoney.dao.impl.EarnMoneyDaoImpl">
         <property name="sqlSession" ref="sqlSession"/>
     </bean>
 </beans>

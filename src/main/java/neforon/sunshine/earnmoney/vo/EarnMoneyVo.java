@@ -1,7 +1,5 @@
 package neforon.sunshine.earnmoney.vo;
 
-import neforon.sunshine.earnmoney.vo.EarnMoneyItemVo;
-
 import java.util.List;
 
 /**
@@ -24,9 +22,7 @@ public class EarnMoneyVo {
             earnSlogan = itemList.get(0).getEarnSlogan();
             earnMethods = new String[itemList.size() + 1];
             for (EarnMoneyItemVo item : itemList) {
-                Integer index = item.getStep();
-                String desc = item.getMethodDesc();
-                earnMethods[index] = item.getMethodDesc();
+                earnMethods[item.getStep()] = item.getMethodDesc();
             }
         }
     }

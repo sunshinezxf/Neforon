@@ -14,7 +14,7 @@ public class GuidanceItemVo {
         description = "";
     }
 
-    public GuidanceItemVo(String title, String description, Integer step) {
+    public GuidanceItemVo(String title, Integer step, String description) {
         this.title = title;
         this.description = description;
         this.step = step;

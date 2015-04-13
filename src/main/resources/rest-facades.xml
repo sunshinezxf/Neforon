@@ -3,7 +3,12 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
-    <bean id="guidanceFacade" class="neforon.sunshine.guidance.facade.impl.GuidanceFacadeImpl">
-        <property name="guidanceService" ref="guidanceService"/>
-    </bean>
+
+    <bean id="projectFacade" class="neforon.sunshine.project.facade.impl.ProjectFacadeImpl"></bean>
+
+    <bean id="codeFacade" class="neforon.sunshine.qrcode.facade.impl.CodeFacadeImpl"></bean>
+
+    <bean id="guidanceFacade" class="neforon.sunshine.guidance.facade.impl.GuidanceFacadeImpl"></bean>
+
+    <bean id="earnMoneyFacade" class="neforon.sunshine.earnmoney.facade.impl.EarnMoneyFacadeImpl"></bean>
 </beans>

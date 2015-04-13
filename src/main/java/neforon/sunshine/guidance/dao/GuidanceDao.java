@@ -10,5 +10,5 @@ import java.util.List;
  */
 public interface GuidanceDao {
 
-    public List<GuidanceItemVo> queryQRGuidance();
+    public List<GuidanceItemVo> selectQRGuidanceById(String projectId);
 }

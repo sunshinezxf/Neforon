@@ -5,5 +5,5 @@ package neforon.sunshine.utils;
  */
 public class URLConst {
 
-    public final static String NEFORON_PREMISE = "/neforon/premise";
+    public final static String NEFORON_PREMISE = "/neforon/premise/{projectId}";
 }

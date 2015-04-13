@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-config.dtd">
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-	<mappers>
-	</mappers>
+    <mappers>
+        <mapper resource="neforon/sunshine/mapper/project.xml"/>
+        <mapper resource="neforon/sunshine/mapper/qrcode.xml"/>
+        <mapper resource="neforon/sunshine/mapper/guidance.xml"/>
+        <mapper resource="neforon/sunshine/mapper/earnmoney.xml"/>
+    </mappers>
 </configuration>

@@ -2,10 +2,11 @@ package neforon.sunshine.guidance.service.impl;
 
 import neforon.sunshine.guidance.dao.GuidanceDao;
 import neforon.sunshine.guidance.service.GuidanceService;
-import neforon.sunshine.utils.ResponseCode;
-import neforon.sunshine.utils.ResultData;
 import neforon.sunshine.guidance.vo.GuidanceItemVo;
 import neforon.sunshine.guidance.vo.GuidanceVo;
+import neforon.sunshine.utils.ResponseCode;
+import neforon.sunshine.utils.ResultData;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
@@ -15,26 +16,20 @@ import java.util.List;
  * Created by sunshine on 4/8/15.
  */
 public class GuidanceServiceImpl implements GuidanceService {
-
+    @Autowired
     private GuidanceDao guidanceDao;
 
-    public GuidanceDao getGuidanceDao() {
-        return guidanceDao;
-    }
-
-    public void setGuidanceDao(GuidanceDao guidanceDao) {
-        this.guidanceDao = guidanceDao;
-    }
-
     @Override
-    public ResultData queryQRGuidance() {
+    public ResultData queryQRGuidanceById(String projectId) {
         ResultData result = new ResultData();
         List<GuidanceItemVo> lists = new ArrayList<GuidanceItemVo>();
-        lists = guidanceDao.queryQRGuidance();
+        lists = guidanceDao.selectQRGuidanceById(projectId);
         if (!StringUtils.isEmpty(lists)) {
             result.setStatusCode(ResponseCode.MESSAGE_OK);
             GuidanceVo guidanceVo = new GuidanceVo(lists);
             result.setData(guidanceVo);
+        } else {
+            result.setStatusCode(ResponseCode.MESSAGE_NULL);
         }
         return result;
     }

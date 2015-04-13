@@ -37,7 +37,7 @@
         </property>
     </bean>
 
-    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" scope="prototype">
         <constructor-arg index="0" ref="sqlSessionFactory"/>
         <constructor-arg index="1" value="BATCH"/>
     </bean>
@@ -49,6 +49,7 @@
     </bean>
 
     <task:annotation-driven/>
+    <import resource="rest-controllers.xml"/>
     <import resource="rest-facades.xml"/>
     <import resource="rest-services.xml"/>
     <import resource="rest-daos.xml"/>

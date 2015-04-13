@@ -1,0 +1,10 @@
+package neforon.sunshine.qrcode.service;
+
+import neforon.sunshine.utils.ResultData;
+
+/**
+ * Created by sunshine on 4/12/15.
+ */
+public interface CodeService {
+    public ResultData queryCodeById(String projectId);
+}
