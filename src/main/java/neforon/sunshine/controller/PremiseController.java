@@ -10,6 +10,8 @@ import neforon.sunshine.earnmoney.facade.EarnMoneyFacade;
 import neforon.sunshine.earnmoney.vo.EarnMoneyVo;
 import neforon.sunshine.guidance.facade.GuidanceFacade;
 import neforon.sunshine.guidance.vo.GuidanceVo;
+import neforon.sunshine.housetype.facade.HouseTypeFacade;
+import neforon.sunshine.housetype.vo.HouseTypeVo;
 import neforon.sunshine.premiseview.facade.PremiseViewFacade;
 import neforon.sunshine.premiseview.vo.PremiseViewVo;
 import neforon.sunshine.project.facade.ProjectFacade;
@@ -58,6 +60,9 @@ public class PremiseController {
 
     @Autowired
     private PremiseAdvantageFacade premiseAdvantageFacade;
+
+    @Autowired
+    private HouseTypeFacade houseTypeFacade;
 
     @RequestMapping(method = RequestMethod.GET, value = URLConst.NEFORON_PREMISE)
     public ModelAndView queryPremise(HttpServletRequest request, HttpServletResponse response, @PathVariable String projectId) {
@@ -109,6 +114,12 @@ public class PremiseController {
         if (premiseAdvantageMessage.getStatusCode() == ResponseCode.MESSAGE_OK) {
             PremiseAdvantageVo premiseAdvantage = premiseAdvantageMessage.getData();
             premiseVo.setPremiseAdvantages(premiseAdvantage);
+        }
+
+        ResultData houseTypeMessage = houseTypeFacade.queryHouseType(projectId);
+        if (houseTypeMessage.getStatusCode() == ResponseCode.MESSAGE_OK) {
+            HouseTypeVo houseType = houseTypeMessage.getData();
+            premiseVo.setHouseType(houseType);
         }
 
         view.setViewName("premise");

@@ -20,4 +20,6 @@
 
     <bean id="premiseAdvantageFacade"
           class="neforon.sunshine.buildingintro.facade.impl.PremiseAdvantageFacadeImpl"></bean>
+
+    <bean id="houseTypeFacade" class="neforon.sunshine.housetype.facade.impl.HouseTypeFacadeImpl"></bean>
 </beans>

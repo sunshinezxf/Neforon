@@ -35,4 +35,8 @@
     <bean id="premiseAdvantageDao" class="neforon.sunshine.buildingintro.dao.impl.PremiseAdvantageDaoImpl">
         <property name="sqlSession" ref="sqlSession"/>
     </bean>
+
+    <bean id="houseTypeDao" class="neforon.sunshine.housetype.dao.impl.HouseTypeDaoImpl">
+        <property name="sqlSession" ref="sqlSession"/>
+    </bean>
 </beans>

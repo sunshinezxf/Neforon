@@ -20,4 +20,6 @@
 
     <bean id="premiseAdvantageService"
           class="neforon.sunshine.buildingintro.service.impl.PremiseAdvantageServiceImpl"></bean>
+
+    <bean id="houseTypeService" class="neforon.sunshine.housetype.service.impl.HouseTypeServiceImpl"></bean>
 </beans>
