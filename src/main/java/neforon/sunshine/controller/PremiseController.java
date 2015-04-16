@@ -126,16 +126,4 @@ public class PremiseController {
         view.addObject("premise", premiseVo);
         return view;
     }
-
-    public ModelAndView manageGuidance(HttpServletRequest request, HttpServletResponse response) {
-        ModelAndView view = new ModelAndView();
-
-        return view;
-    }
-
-    public ModelAndView login(HttpServletRequest request, HttpServletResponse response) {
-        ModelAndView view = new ModelAndView();
-
-        return view;
-    }
 }
