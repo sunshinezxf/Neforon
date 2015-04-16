@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="confirm">
-                        <input type="submit" value="登录" class="confirm-login-btn"/>
+                        <input type="submit" value="登录"/>
                     </div>
                 </form>
             </div>

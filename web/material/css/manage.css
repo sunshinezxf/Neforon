@@ -17,18 +17,30 @@ body {
       margin: -11px auto 10px auto;
       background-color: #FFFFDF;
       width: 50%;
-      font-size: 20px; }
+      font-size: 23px; }
     body .page .ui-content .login .authentication {
-      font-size: 15px; }
+      font-size: 20px; }
       body .page .ui-content .login .authentication .login-form {
         margin: 5px 5% 5px 5%;
-        line-height: 35px; }
+        line-height: 40px; }
         body .page .ui-content .login .authentication .login-form .form-unit {
           width: 80%;
-          margin: 1px 10% 1px 10%;
+          margin: 3px 10% 3px 10%;
           letter-spacing: 2px; }
           body .page .ui-content .login .authentication .login-form .form-unit label {
             padding: 0 3px;
             width: 100px; }
+          body .page .ui-content .login .authentication .login-form .form-unit input[type="text"], body .page .ui-content .login .authentication .login-form .form-unit input[type="password"] {
+            border-radius: 3px;
+            width: 50%;
+            line-height: 27px;
+            border: 1px solid #5A0075; }
+        body .page .ui-content .login .authentication .login-form .confirm {
+          height: 35px; }
+          body .page .ui-content .login .authentication .login-form .confirm input[type="submit"] {
+            width: 25%;
+            font-size: 23px;
+            letter-spacing: 2px;
+            padding: 0; }
 
 /*# sourceMappingURL=manage.css.map */
