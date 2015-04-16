@@ -10,7 +10,6 @@
     <select id="selectManager" resultMap="manager">
         SELECT username, password
         FROM manager
-        WHERE username=#{username}
-        AND password=#{password};
+        WHERE username=#{username};
     </select>
 </mapper>
