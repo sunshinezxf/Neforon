@@ -4,6 +4,7 @@ import neforon.sunshine.manager.facade.ManagerFacade;
 import neforon.sunshine.utils.ResponseCode;
 import neforon.sunshine.utils.ResultData;
 import neforon.sunshine.utils.URLConst;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @RestController
 public class ManageController {
-
+    @Autowired
     private ManagerFacade managerFacade;
 
     @RequestMapping(method = RequestMethod.POST, value = URLConst.NEFORON_AUTHENTICATION)
@@ -26,6 +27,9 @@ public class ManageController {
         ModelAndView view = new ModelAndView();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+
+        System.out.println(username);
+        System.out.println(password);
 
         if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)) {
             view.setViewName("error");

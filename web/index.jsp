@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="path" value="${pageContext.request.contextPath}"></c:set>
 <html>
 <head>
     <meta charset="utf-8"/>
@@ -24,7 +26,7 @@
             <h3>登 &nbsp; &nbsp;录</h3>
 
             <div class="authentication">
-                <form class="login-form">
+                <form class="login-form" action="${path.concat('/neforon/authen')}" method="post">
                     <div class="form-unit">
                         <label for="username" class="username">用户名：</label>
                         <input type="text" name="username" id="username" value=""/>

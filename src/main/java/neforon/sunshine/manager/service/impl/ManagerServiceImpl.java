@@ -5,11 +5,13 @@ import neforon.sunshine.manager.service.ManagerService;
 import neforon.sunshine.manager.vo.ManagerVo;
 import neforon.sunshine.utils.ResponseCode;
 import neforon.sunshine.utils.ResultData;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Created by sunshine on 4/16/15.
  */
 public class ManagerServiceImpl implements ManagerService {
+    @Autowired
     private ManagerDao managerDao;
 
     @Override

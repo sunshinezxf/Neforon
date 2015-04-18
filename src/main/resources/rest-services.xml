@@ -22,4 +22,6 @@
           class="neforon.sunshine.buildingintro.service.impl.PremiseAdvantageServiceImpl"></bean>
 
     <bean id="houseTypeService" class="neforon.sunshine.housetype.service.impl.HouseTypeServiceImpl"></bean>
+
+    <bean id="managerService" class="neforon.sunshine.manager.service.impl.ManagerServiceImpl"></bean>
 </beans>

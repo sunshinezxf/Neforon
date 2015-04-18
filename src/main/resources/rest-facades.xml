@@ -22,4 +22,6 @@
           class="neforon.sunshine.buildingintro.facade.impl.PremiseAdvantageFacadeImpl"></bean>
 
     <bean id="houseTypeFacade" class="neforon.sunshine.housetype.facade.impl.HouseTypeFacadeImpl"></bean>
+
+    <bean id="managerFacade" class="neforon.sunshine.manager.facade.impl.ManagerFacadeImpl"></bean>
 </beans>
