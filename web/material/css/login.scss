@@ -1,0 +1,61 @@
+body {
+  background-color: #FFFFDF;
+  text-align: center;
+  opacity: 0.8;
+  color: #5A0075;
+  .page {
+    .ui-content {
+      .header {
+        padding-bottom: 10px;
+        h1 {
+          margin: 10px auto;
+        }
+        hr {
+          margin: 3px auto;
+        }
+      }
+      .login {
+        border-radius: 5px;
+        border: solid 1px;
+        margin: 20px 10% 20px 10%;
+        h3 {
+          margin: -11px auto 10px auto;
+          background-color: #FFFFDF;
+          width: 50%;
+          font-size: 23px;
+        }
+        .authentication {
+          font-size: 20px;
+          .login-form {
+            margin: 5px 5% 5px 5%;
+            line-height: 40px;
+            .form-unit {
+              width: 80%;
+              margin: 3px 10% 3px 10%;
+              letter-spacing: 2px;
+              label {
+                padding: 0 3px;
+                width: 100px;
+              }
+              input[type="text"], input[type="password"] {
+                border-radius: 3px;
+                width: 50%;
+                line-height: 27px;
+                border: 1px solid #5A0075;
+              }
+            }
+            .confirm {
+              height: 35px;
+              input[type="submit"] {
+                width: 25%;
+                font-size: 23px;
+                letter-spacing: 2px;
+                padding: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
