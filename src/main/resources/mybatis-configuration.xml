@@ -13,5 +13,6 @@
         <mapper resource="neforon/sunshine/mapper/coupon.xml"/>
         <mapper resource="neforon/sunshine/mapper/premiseadvantage.xml"/>
         <mapper resource="neforon/sunshine/mapper/housetype.xml"/>
+        <mapper resource="neforon/sunshine/mapper/manager.xml"/>
     </mappers>
 </configuration>

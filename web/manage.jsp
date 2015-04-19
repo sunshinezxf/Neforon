@@ -16,6 +16,35 @@
     <title>管理操作后台</title>
 </head>
 <body>
+<header class="admin-header">
+    <div class="header-brand">
+        <strong>Neforon</strong>
+        <small>后台管理系统</small>
+    </div>
+    <div class="header-collapse">
+        <ul class="header-list">
+            <li><a class="username">${username}</a></li>
+            <li><a href="#">退出</a></li>
+        </ul>
+    </div>
+</header>
+<div class="ui-content">
+    <div class="admin-navigator">
+        <div class="operation-list">
+            <ul class="admin-operation-list">
+                <li>
+                    <a>Neforon·扫码指南</a>
+                </li>
+                <li>
+                    <a>Neforon·新建楼盘</a>
+                </li>
+                <li>
+                    <a>Neforon·管理楼盘</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

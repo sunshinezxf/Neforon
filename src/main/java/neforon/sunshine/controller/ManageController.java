@@ -1,6 +1,7 @@
 package neforon.sunshine.controller;
 
 import neforon.sunshine.manager.facade.ManagerFacade;
+import neforon.sunshine.manager.vo.ManagerVo;
 import neforon.sunshine.utils.ResponseCode;
 import neforon.sunshine.utils.ResultData;
 import neforon.sunshine.utils.URLConst;
@@ -28,9 +29,6 @@ public class ManageController {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        System.out.println(username);
-        System.out.println(password);
-
         if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)) {
             view.setViewName("error");
             return view;
@@ -38,9 +36,12 @@ public class ManageController {
 
         ResultData authenticationMessage = managerFacade.queryManager(username, password);
         if (authenticationMessage.getStatusCode() == ResponseCode.MESSAGE_OK) {
+            ManagerVo manager = authenticationMessage.getData();
+            view.addObject("username", manager.getUsername());
             view.setViewName("manage");
         } else {
             view.setViewName("error");
+            return view;
         }
         return view;
     }

@@ -1,46 +1,77 @@
 body {
   background-color: #FFFFDF;
-  text-align: center;
-  opacity: 0.8;
-  color: #5A0075; }
-  body .page .ui-content .header {
-    padding-bottom: 10px; }
-    body .page .ui-content .header h1 {
-      margin: 10px auto; }
-    body .page .ui-content .header hr {
-      margin: 3px auto; }
-  body .page .ui-content .login {
+  box-sizing: border-box;
+  color: #666; }
+  body header .header-brand {
+    padding: 0 10px;
+    float: left;
+    font-size: 18px;
+    height: 50px;
+    line-height: 50px; }
+  body .admin-header {
+    display: table;
+    font-size: 1.4rem;
+    margin-bottom: 0;
+    position: relative;
+    width: 100%;
+    min-height: 50px;
+    color: #666;
+    border-bottom: solid 1px #dddddd; }
+  body .admin-header::before, body .admin-header::after {
+    display: table; }
+  body .admin-header::after {
+    clear: both; }
+  body .header-collapse {
+    float: right;
+    margin: 15px 10px 0 0;
+    box-sizing: border-box;
+    padding: 0;
+    list-style: none;
+    font-size: 13px;
+    vertical-align: bottom; }
+    body .header-collapse ul {
+      margin: 0px;
+      padding-left: 2px;
+      display: block;
+      list-style-type: none; }
+      body .header-collapse ul li {
+        float: left; }
+        body .header-collapse ul li a {
+          margin: 0 5px; }
+        body .header-collapse ul li .username {
+          font-size: 16px; }
+  body .ui-content {
+    margin-top: 10px;
+    padding: 0 10px;
     border-radius: 5px;
-    border: solid 1px;
-    margin: 20px 10% 20px 10%; }
-    body .page .ui-content .login h3 {
-      margin: -11px auto 10px auto;
-      background-color: #FFFFDF;
-      width: 50%;
-      font-size: 23px; }
-    body .page .ui-content .login .authentication {
-      font-size: 20px; }
-      body .page .ui-content .login .authentication .login-form {
-        margin: 5px 5% 5px 5%;
-        line-height: 40px; }
-        body .page .ui-content .login .authentication .login-form .form-unit {
-          width: 80%;
-          margin: 3px 10% 3px 10%;
-          letter-spacing: 2px; }
-          body .page .ui-content .login .authentication .login-form .form-unit label {
-            padding: 0 3px;
-            width: 100px; }
-          body .page .ui-content .login .authentication .login-form .form-unit input[type="text"], body .page .ui-content .login .authentication .login-form .form-unit input[type="password"] {
-            border-radius: 3px;
-            width: 50%;
-            line-height: 27px;
-            border: 1px solid #5A0075; }
-        body .page .ui-content .login .authentication .login-form .confirm {
-          height: 35px; }
-          body .page .ui-content .login .authentication .login-form .confirm input[type="submit"] {
-            width: 25%;
-            font-size: 23px;
-            letter-spacing: 2px;
-            padding: 0; }
+    border: 1px solid #dddddd;
+    clear: both; }
+    body .ui-content .admin-sidebar {
+      line-height: 50px;
+      width: 19%;
+      letter-spacing: 2px;
+      position: static;
+      display: block;
+      float: right; }
+      body .ui-content .admin-sidebar .operation-list {
+        font-size: 18px;
+        line-height: 30px; }
+        body .ui-content .admin-sidebar .operation-list ul {
+          padding: 0px;
+          box-sizing: content-box;
+          background-color: #f6f6f6;
+          list-style-type: none; }
+          body .ui-content .admin-sidebar .operation-list ul li {
+            padding: 10px 0;
+            text-align: center;
+            border: 1px dotted #dddddd; }
+        body .ui-content .admin-sidebar .operation-list .admin-operation-list {
+          border: dotted 1px #dddddd;
+          border-radius: 2px; }
+    body .ui-content .admin-content {
+      width: auto;
+      overflow: hidden;
+      box-sizing: border-box;
+      height: 700px; }
 
 /*# sourceMappingURL=manage.css.map */

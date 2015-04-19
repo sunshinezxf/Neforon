@@ -12,8 +12,8 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="material/css/manage.css">
-    <title>管理页面</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="${path.concat('/material/css/login.css')}">
+    <title>后台管理登录页面</title>
 </head>
 <body>
 <div class="page">
@@ -44,7 +44,10 @@
                 </form>
             </div>
         </div>
-        <footer class="bottom-footer">&copy; &nbsp; sunshinezxf@me.com</footer>
+        <footer class="bottom-footer">
+            <hr/>
+            <p>&copy; &nbsp; sunshinezxf@me.com</p>
+        </footer>
     </div>
 </div>
 </body>
