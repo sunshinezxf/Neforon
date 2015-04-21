@@ -7,6 +7,11 @@
         <result property="description" column="guidance_detail"/>
     </resultMap>
 
+    <resultMap id="guidanceTitle" type="neforon.sunshine.model.GuidanceTitle">
+        <result property="titleId" column="guidance_title_id"/>
+        <result property="titlename" column="guidance_title"/>
+    </resultMap>
+
     <resultMap id="modifyGuidance" type="neforon.sunshine.model.GuidanceItem">
         <result property="id" column="id"/>
         <result property="projectId" column="project_id"/>
@@ -20,6 +25,11 @@
         SELECT guidance_title, step, guidance_detail
         FROM guidance
         WHERE project_id=#{projectId};
+    </select>
+
+    <select id="selectGuidanceTitle" resultMap="guidanceTitle">
+        SELECT DISTINCT guidance_title_id, guidance_title
+        FROM guidance;
     </select>
 
     <!-- 查询所有的扫码步骤 -->

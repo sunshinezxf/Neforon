@@ -1,7 +1,8 @@
 package neforon.sunshine.controller;
 
-import neforon.sunshine.guidance.facade.GuidanceFacade;
 import neforon.sunshine.manager.facade.ManagerFacade;
+import neforon.sunshine.model.Project;
+import neforon.sunshine.project.facade.ProjectFacade;
 import neforon.sunshine.utils.ResponseCode;
 import neforon.sunshine.utils.ResultData;
 import neforon.sunshine.utils.URLConst;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  * Created by sunshine on 4/16/15.
@@ -24,7 +26,7 @@ public class ManageController {
     private ManagerFacade managerFacade;
 
     @Autowired
-    private GuidanceFacade guidanceFacade;
+    private ProjectFacade projectFacade;
 
     @RequestMapping(method = RequestMethod.POST, value = URLConst.NEFORON_AUTHENTICATION)
     public ModelAndView login(HttpServletRequest request, HttpServletResponse response) {
@@ -42,8 +44,27 @@ public class ManageController {
             view.setViewName("error");
             return view;
         }
+
+        ResultData projectsMessage = projectFacade.queryActiveProjects();
+        if (projectsMessage.getStatusCode() == ResponseCode.MESSAGE_NULL) {
+            view.setViewName("error");
+        } else {
+            List<Project> projectList = projectsMessage.getData();
+            view.addObject("projects", projectList);
+        }
         view.setViewName("manage");
 
+        return view;
+    }
+
+
+    @RequestMapping(method = RequestMethod.POST, value = URLConst.NEFORON_CREATE)
+    public ModelAndView generatePremiseTemplate(HttpServletRequest request, HttpServletResponse response) {
+        ModelAndView view = new ModelAndView();
+        String projectName = request.getParameter("projectName");
+        view.addObject("projectName", projectName);
+
+        view.setViewName("template");
         return view;
     }
 }

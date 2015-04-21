@@ -5,10 +5,23 @@
         <result property="projectName" column="project_name"></result>
     </resultMap>
 
+    <resultMap id="selectActiveProject" type="neforon.sunshine.model.Project">
+        <result property="id" column="id"></result>
+        <result property="projectId" column="project_id"></result>
+        <result property="projectName" column="project_name"></result>
+    </resultMap>
+
     <!-- 根据project的ID查询到项目的名称 -->
     <select id="selectProject" resultMap="project">
         SELECT project_name
         FROM project
         WHERE project_id=#{projectId};
+    </select>
+
+    <!-- 查询当前活跃的楼盘项目 -->
+    <select id="selectActiveProject" resultMap="selectActiveProject">
+        SELECT id, project_id, project_name
+        FROM project
+        WHERE status=1;
     </select>
 </mapper>

@@ -50,9 +50,9 @@
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
                 <li class="active"><a href="#">总览 <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">扫码管理</a></li>
                 <li><a href="#">楼盘管理</a></li>
                 <li><a href="#">添加楼盘</a></li>
+                <li><a href="#">历史楼盘</a></li>
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -60,66 +60,95 @@
 
             <div class="row placeholders">
                 <div class="col-xs-6 col-sm-3 placeholder">
-                    <h4>扫码管理</h4>
-                    <span class="text-muted">二维码扫码指南</span>
-                </div>
-                <div class="col-xs-6 col-sm-3 placeholder">
                     <h4>楼盘管理</h4>
-                    <span class="text-muted">已有楼盘信息的管理</span>
+                    <span class="text-muted">当前宣传中的楼盘的管理</span>
                 </div>
                 <div class="col-xs-6 col-sm-3 placeholder">
                     <h4>添加楼盘</h4>
-                    <span class="text-muted">添加新的楼盘信息</span>
+                    <span class="text-muted">添加新的楼盘宣传信息</span>
+                </div>
+                <div class="col-xs-6 col-sm-3 placeholder">
+                    <h4>历史楼盘</h4>
+                    <span class="text-muted">查询已删除的楼盘数据</span>
                 </div>
                 <div class="col-xs-6 col-sm-3 placeholder">
                     <h4>寻求帮助</h4>
                     <span class="text-muted">请联系sunshinezxf@me.com</span>
                 </div>
             </div>
+            <div class="active-premise-management">
+                <h2 class="sub-header">楼盘管理</h2>
 
-            <h2 class="sub-header">扫码指南</h2>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>楼盘编号</th>
+                            <th>楼盘名称</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="item" items="${projects}">
+                            <tr>
+                                <td>${item.projectId}</td>
+                                <td>${item.projectName}</td>
+                                <td>修改｜删除</td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                    <br/>
+                </div>
+            </div>
 
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>Neforon扫码标题</th>
-                        <th>标题内容描述</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>标题</td>
-                        <td></td>
-                    </tr>
-                    </tbody>
-                </table>
+            <div class="create-new-premise">
+                <h2 class="sub-header">添加楼盘</h2>
+
+                <form action="${path.concat('/neforon/create')}" method="post">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-3 placeholder">
+                            <input type="text" class="form-control" placeholder="新楼盘名称" name="projectName"/>
+                        </div>
+                        <input type="submit" class="btn btn-info" value="快速添加"/>
+                    </div>
+                </form>
                 <br/>
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>Neforon扫码指南</th>
-                        <th>步骤内容描述</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Lorem</td>
-                    </tr>
-                    </tbody>
-                </table>
+
+            </div>
+
+            <div class="history-premise">
+                <h2 class="sub-header">历史楼盘</h2>
+
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>楼盘编号</th>
+                            <th>楼盘名称</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>查看数据</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <br/>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
-<script src="${path.concat('/material/js/bootstrap.min.js')}"></script>
-<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-<script src="${path.concat('/material/js/holder.js')}"></script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <script src="${path.concat('/material/js/bootstrap.min.js')}"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="${path.concat('/material/js/holder.js')}"></script>
 </body>
 </html>

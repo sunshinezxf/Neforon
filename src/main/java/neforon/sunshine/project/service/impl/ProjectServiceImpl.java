@@ -1,11 +1,14 @@
 package neforon.sunshine.project.service.impl;
 
+import neforon.sunshine.model.Project;
 import neforon.sunshine.project.dao.ProjectDao;
 import neforon.sunshine.project.service.ProjectService;
 import neforon.sunshine.project.vo.ProjectVo;
 import neforon.sunshine.utils.ResponseCode;
 import neforon.sunshine.utils.ResultData;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
 
 /**
  * Created by sunshine on 4/12/15.
@@ -23,6 +26,19 @@ public class ProjectServiceImpl implements ProjectService {
         } else {
             result.setStatusCode(ResponseCode.MESSAGE_OK);
             result.setData(vo);
+        }
+        return result;
+    }
+
+    @Override
+    public ResultData queryActiveProjects() {
+        ResultData result = new ResultData();
+        List<Project> project = projectDao.selectActiveProjects();
+        if (project == null) {
+            result.setStatusCode(ResponseCode.MESSAGE_NULL);
+        } else {
+            result.setStatusCode(ResponseCode.MESSAGE_OK);
+            result.setData(project);
         }
         return result;
     }

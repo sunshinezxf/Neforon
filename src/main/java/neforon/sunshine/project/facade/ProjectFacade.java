@@ -7,4 +7,6 @@ import neforon.sunshine.utils.ResultData;
  */
 public interface ProjectFacade {
     public ResultData queryProject(String projectId);
+
+    public ResultData queryActiveProjects();
 }

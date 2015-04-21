@@ -18,4 +18,11 @@ public class ProjectFacadeImpl implements ProjectFacade {
         result = projectService.queryProjectById(projectId);
         return result;
     }
+
+    @Override
+    public ResultData queryActiveProjects() {
+        ResultData result = new ResultData();
+        result = projectService.queryActiveProjects();
+        return result;
+    }
 }
