@@ -10,41 +10,116 @@
 <c:set var="path" value="${pageContext.request.contextPath}"></c:set>
 <html>
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="${path.concat('/material/css/manage.css')}"/>
-    <title>管理操作后台</title>
+    <title>Neforon后台管理</title>
+    <link rel="stylesheet" type="text/css" href="${path.concat('/material/css/bootstrap.min.css')}"/>
+    <link rel="stylesheet" type="text/css" href="${path.concat('/material/css/dashboard.css')}"/>
 </head>
+
 <body>
-<header class="admin-header">
-    <div class="header-brand">
-        <strong>Neforon</strong>
-        <small>后台管理系统</small>
-    </div>
-    <div class="header-collapse">
-        <ul class="header-list">
-            <li><a class="username">${username}</a></li>
-            <li><a href="#">退出</a></li>
-        </ul>
-    </div>
-</header>
-<div class="ui-content">
-    <div class="admin-navigator">
-        <div class="operation-list">
-            <ul class="admin-operation-list">
-                <li>
-                    <a>Neforon·扫码指南</a>
-                </li>
-                <li>
-                    <a>Neforon·新建楼盘</a>
-                </li>
-                <li>
-                    <a>Neforon·管理楼盘</a>
-                </li>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand">Neforon后台管理</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">总览</a></li>
+                <li><a href="#">退出</a></li>
+                <li><a href="#">帮助</a></li>
             </ul>
+            <form class="navbar-form navbar-right">
+                <input type="text" class="form-control" placeholder="搜索...">
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li class="active"><a href="#">总览 <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">扫码管理</a></li>
+                <li><a href="#">楼盘管理</a></li>
+                <li><a href="#">添加楼盘</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="page-header">总览</h1>
+
+            <div class="row placeholders">
+                <div class="col-xs-6 col-sm-3 placeholder">
+                    <h4>扫码管理</h4>
+                    <span class="text-muted">二维码扫码指南</span>
+                </div>
+                <div class="col-xs-6 col-sm-3 placeholder">
+                    <h4>楼盘管理</h4>
+                    <span class="text-muted">已有楼盘信息的管理</span>
+                </div>
+                <div class="col-xs-6 col-sm-3 placeholder">
+                    <h4>添加楼盘</h4>
+                    <span class="text-muted">添加新的楼盘信息</span>
+                </div>
+                <div class="col-xs-6 col-sm-3 placeholder">
+                    <h4>寻求帮助</h4>
+                    <span class="text-muted">请联系sunshinezxf@me.com</span>
+                </div>
+            </div>
+
+            <h2 class="sub-header">扫码指南</h2>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Neforon扫码标题</th>
+                        <th>标题内容描述</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>标题</td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <br/>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Neforon扫码指南</th>
+                        <th>步骤内容描述</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Lorem</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
 
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+<script src="${path.concat('/material/js/bootstrap.min.js')}"></script>
+<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+<script src="${path.concat('/material/js/holder.js')}"></script>
 </body>
 </html>

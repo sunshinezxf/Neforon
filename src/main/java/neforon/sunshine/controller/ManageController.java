@@ -1,7 +1,7 @@
 package neforon.sunshine.controller;
 
+import neforon.sunshine.guidance.facade.GuidanceFacade;
 import neforon.sunshine.manager.facade.ManagerFacade;
-import neforon.sunshine.manager.vo.ManagerVo;
 import neforon.sunshine.utils.ResponseCode;
 import neforon.sunshine.utils.ResultData;
 import neforon.sunshine.utils.URLConst;
@@ -23,6 +23,9 @@ public class ManageController {
     @Autowired
     private ManagerFacade managerFacade;
 
+    @Autowired
+    private GuidanceFacade guidanceFacade;
+
     @RequestMapping(method = RequestMethod.POST, value = URLConst.NEFORON_AUTHENTICATION)
     public ModelAndView login(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView view = new ModelAndView();
@@ -35,14 +38,12 @@ public class ManageController {
         }
 
         ResultData authenticationMessage = managerFacade.queryManager(username, password);
-        if (authenticationMessage.getStatusCode() == ResponseCode.MESSAGE_OK) {
-            ManagerVo manager = authenticationMessage.getData();
-            view.addObject("username", manager.getUsername());
-            view.setViewName("manage");
-        } else {
+        if (authenticationMessage.getStatusCode() == ResponseCode.MESSAGE_NULL) {
             view.setViewName("error");
             return view;
         }
+        view.setViewName("manage");
+
         return view;
     }
 }

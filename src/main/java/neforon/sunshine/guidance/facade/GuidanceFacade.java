@@ -7,4 +7,6 @@ import neforon.sunshine.utils.ResultData;
  */
 public interface GuidanceFacade {
     public ResultData queryGuidance(String projectId);
+
+    public ResultData queryGuidances();
 }

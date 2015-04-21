@@ -7,4 +7,6 @@ import neforon.sunshine.utils.ResultData;
  */
 public interface GuidanceService {
     public ResultData queryQRGuidanceById(String projectId);
+
+    public ResultData queryQRGuidances();
 }

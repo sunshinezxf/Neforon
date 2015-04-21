@@ -15,4 +15,9 @@ public class GuidanceDaoImpl extends BaseDao implements GuidanceDao {
     public List<GuidanceItemVo> selectQRGuidanceById(String projectId) {
         return sqlSession.selectList("guidance.selectGuidance", projectId);
     }
+
+    @Override
+    public List<GuidanceItemVo> selectQRGuidances() {
+        return sqlSession.selectList("");
+    }
 }

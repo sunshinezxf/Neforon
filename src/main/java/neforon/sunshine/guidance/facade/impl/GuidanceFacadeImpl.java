@@ -26,4 +26,11 @@ public class GuidanceFacadeImpl implements GuidanceFacade {
         result = guidanceService.queryQRGuidanceById(projectId);
         return result;
     }
+
+    @Override
+    public ResultData queryGuidances() {
+        ResultData result = new ResultData();
+
+        return result;
+    }
 }

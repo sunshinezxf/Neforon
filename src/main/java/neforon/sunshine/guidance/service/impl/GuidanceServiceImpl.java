@@ -33,4 +33,12 @@ public class GuidanceServiceImpl implements GuidanceService {
         }
         return result;
     }
+
+    @Override
+    public ResultData queryQRGuidances() {
+        ResultData result = new ResultData();
+        List<GuidanceItemVo> lists = new ArrayList<GuidanceItemVo>();
+
+        return result;
+    }
 }

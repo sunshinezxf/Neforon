@@ -7,10 +7,24 @@
         <result property="description" column="guidance_detail"/>
     </resultMap>
 
+    <resultMap id="modifyGuidance" type="neforon.sunshine.model.GuidanceItem">
+        <result property="id" column="id"/>
+        <result property="projectId" column="project_id"/>
+        <result property="guidanceTitle" column="guidance_title"/>
+        <result property="guidanceDetail" column="guidance_detail"/>
+        <result property="step" column="step"/>
+    </resultMap>
+
     <!-- 查询用户扫码步骤 -->
     <select id="selectGuidance" resultMap="guidance">
         SELECT guidance_title, step, guidance_detail
         FROM guidance
         WHERE project_id=#{projectId};
+    </select>
+
+    <!-- 查询所有的扫码步骤 -->
+    <select id="selectGuidances" resultMap="modifyGuidance">
+        SELECT id, project_id, guidance_title, guidance_detail, step
+        FROM guidance;
     </select>
 </mapper>
