@@ -1,20 +1,20 @@
 package neforon.sunshine.model;
 
 /**
- * Created by sunshine on 4/21/15.
+ * Created by sunshine on 4/23/15.
  */
-public class Project {
+public class PremiseView {
     private Integer id;
     private String projectId;
-    private String projectName;
+    private String premiseViewPath;
 
-    public Project() {
+    public PremiseView() {
 
     }
 
-    public Project(String projectId, String projectName) {
+    public PremiseView(String projectId, String premiseViewPath) {
         this.projectId = projectId;
-        this.projectName = projectName;
+        this.premiseViewPath = premiseViewPath;
     }
 
     public Integer getId() {
@@ -33,11 +33,11 @@ public class Project {
         this.projectId = projectId;
     }
 
-    public String getProjectName() {
-        return projectName;
+    public String getPremiseViewPath() {
+        return premiseViewPath;
     }
 
-    public void setProjectName(String projectName) {
-        this.projectName = projectName;
+    public void setPremiseViewPath(String premiseViewPath) {
+        this.premiseViewPath = premiseViewPath;
     }
 }

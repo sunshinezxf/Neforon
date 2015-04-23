@@ -28,6 +28,7 @@ public class IDGenerator {
         StringBuffer result = new StringBuffer();
         Random random = new Random();
         random.setSeed(current.getTimeInMillis());
+        result.append("neforon_");
         result.append(new String(temp));
         result.append(random.nextInt(99));
         return result.toString();

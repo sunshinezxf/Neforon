@@ -1,20 +1,20 @@
 package neforon.sunshine.model;
 
 /**
- * Created by sunshine on 4/21/15.
+ * Created by sunshine on 4/23/15.
  */
-public class Project {
+public class QRCode {
     private Integer id;
     private String projectId;
-    private String projectName;
+    private String qrPath;
 
-    public Project() {
+    public QRCode() {
 
     }
 
-    public Project(String projectId, String projectName) {
+    public QRCode(String projectId, String qrPath) {
         this.projectId = projectId;
-        this.projectName = projectName;
+        this.qrPath = qrPath;
     }
 
     public Integer getId() {
@@ -33,11 +33,11 @@ public class Project {
         this.projectId = projectId;
     }
 
-    public String getProjectName() {
-        return projectName;
+    public String getQrPath() {
+        return qrPath;
     }
 
-    public void setProjectName(String projectName) {
-        this.projectName = projectName;
+    public void setQrPath(String qrPath) {
+        this.qrPath = qrPath;
     }
 }

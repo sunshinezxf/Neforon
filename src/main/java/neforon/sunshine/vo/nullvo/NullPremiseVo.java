@@ -74,7 +74,7 @@ public class NullPremiseVo extends PremiseVo {
         List<String> result = new ArrayList<String>();
         String[] methods = new String[]{"截屏二维码并保存至手机相册", "打开您的微信，点击右上角\"+\"，点击\"扫一扫\"", "进入\"扫一扫界面\"，点击右上角\"相册\"，选中刚保存的二维码图片", "点击\"关注\""};
         for (String item : methods) {
-            result.add(item);
+            result.add(item.replaceAll("\"", "&quot;"));
         }
         return result;
     }
@@ -83,7 +83,7 @@ public class NullPremiseVo extends PremiseVo {
         List<String> result = new ArrayList<String>();
         String[] methods = new String[]{"手机点一点，转发来赚钱", "手机写一写，带看来赚钱", "手机拨一拨，约上亲友来赚钱", "手机扫一扫，签到来赚钱"};
         for (String item : methods) {
-            result.add(item);
+            result.add(item.replaceAll("\"", "&quot;"));
         }
         return result;
     }
@@ -92,7 +92,7 @@ public class NullPremiseVo extends PremiseVo {
         List<String> result = new ArrayList<String>();
         String[] advantages = new String[]{"区位优势：南京南站为核心的宁南地区，将成为未来发展空间最大，势头最猛的地区", "配套优势：10分钟成熟生活圈，汇聚永辉超市、商场、特色餐饮、KTV、中影国际影城等", "景观优势：一条\"时光漫步道\"连贯多个主题景观团。成长乐园、醒晨吧，给孩子和老人预留的不同主题户外活动空间，享更多鲜氧运动", "交通优势：南京南站，汇聚4条地铁线（1、3号线运行中）、6条城市快速通道、25条公交线"};
         for (String item : advantages) {
-            result.add(item);
+            result.add(item.replaceAll("\"", "&quot;"));
         }
         return result;
     }

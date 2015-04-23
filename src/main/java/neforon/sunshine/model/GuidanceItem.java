@@ -10,6 +10,17 @@ public class GuidanceItem {
     private String guidanceDetail;
     private Integer step;
 
+    public GuidanceItem() {
+
+    }
+
+    public GuidanceItem(String projectId, String guidanceTitle, String guidanceDetail, Integer step) {
+        this.projectId = projectId;
+        this.guidanceTitle = guidanceTitle;
+        this.guidanceDetail = guidanceDetail;
+        this.step = step;
+    }
+
     public Integer getId() {
         return id;
     }

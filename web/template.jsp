@@ -60,14 +60,16 @@
             <br/>
 
             <div clas="premise-template">
-                <form>
+                <form action="${path.concat('/neforon/submit')}" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="projectName" value="${projectName}"/>
+
                     <div class="qrcode-pic-editor">
 
                         <h2 class="sub-header">楼盘二维码</h2>
 
                         <div class="row">
                             <div class="col-xs-6 col-sm-3 placeholder">
-                                <input type="file" class="form-control" name="qrPic"/>
+                                <input type="file" class="form-control alert-info" name="qrPic"/>
                             </div>
                         </div>
                     </div>
@@ -78,19 +80,133 @@
                         <div class="row">
                             <div class="col-xs-6 placeholder">
                                 <label>扫码标题：</label>
-                                <input type="text" class="form-control" name="guidanceTitle" placeholder="扫码指南标题"/>
+
+                                <input type="text" class="form-control alert-info" name="guidanceTitle"
+                                       placeholder="扫码指南标题"/>
                                 <br/>
                                 <label>扫码步骤：</label>
-                                <input type="text" class="form-control" name="guidanceStep1" placeholder="扫码步骤一"/>
+
+                                <input type="text" class="form-control" name="guidanceStep1"
+                                       value="${template.guidanceDetail[0]}"/>
                                 <br/>
-                                <input type="text" class="form-control" name="guidanceStep2" placeholder="扫码步骤二"/>
+                                <input type="text" class="form-control" name="guidanceStep2"
+                                       value="${template.guidanceDetail[1]}"/>
                                 <br/>
-                                <input type="text" class="form-control" name="guidanceStep3" placeholder="扫码步骤三"/>
+                                <input type="text" class="form-control" name="guidanceStep3"
+                                       value="${template.guidanceDetail[2]}"/>
                                 <br/>
-                                <input type="text" class="form-control" name="guidanceStep4" placeholder="扫码步骤四"/>
+                                <input type="text" class="form-control" name="guidanceStep4"
+                                       value="${template.guidanceDetail[3]}"/>
                                 <br/>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="earn-approach-editor">
+                        <h2 class="sub-header">赚钱方法</h2>
+
+                        <div class="row">
+                            <div class="col-xs-6 placeholder">
+                                <label>赚钱公司：</label>
+                                <input type="text" class="form-control alert-info" name="earnCompany"
+                                       placeholder="赚钱的公司标语"/>
+                                <br/>
+                                <label>赚钱口号：</label>
+                                <input type="text" class="form-control" name="earnCompany"
+                                       value="${template.earnSlogan}"/>
+                                <br/>
+                                <label>赚钱方法：</label>
+                                <input type="text" class="form-control" name="earnMethod1"
+                                       value="${template.earnMethods[0]}"/>
+                                <br/>
+                                <input type="text" class="form-control" name="earnMethod2"
+                                       value="${template.earnMethods[1]}"/>
+                                <br/>
+                                <input type="text" class="form-control" name="earnMethod3"
+                                       value="${template.earnMethods[2]}"/>
+                                <br/>
+                                <input type="text" class="form-control" name="earnMethod4"
+                                       value="${template.earnMethods[3]}"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="price-editor">
+                        <h2 class="sub-header">楼盘价格</h2>
+
+                        <div class="row">
+                            <div class="col-xs-6 placeholder">
+                                <label>楼盘名称</label>
+                                <input type="text" class="form-control" name="companyName" value="${projectName}"/>
+                                <br/>
+                                <label>均价(单位：元/平方米)</label>
+                                <input type="number" class="form-control alert-info" name="avgPrice"
+                                       placeholder="多少元每平米">
+                                <br/>
+                                <label>楼盘状态</label>
+                                <input type="text" class="form-control" name="activityStatus" value="开盘热销中">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premise-view-editor">
+                        <h2 class="sub-header">楼盘全景</h2>
+
+                        <div class="row">
+                            <div class="col-xs-6 placeholder">
+                                <input type="file" class="form-control alert-info" name="premisePic"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="coupon-editor">
+                        <h2 class="sub-header">优惠设置</h2>
+
+                        <div class="row">
+                            <div class="col-xs-6 placeholder">
+                                <label>优惠信息标题：</label>
+                                <input type="text" class="form-control alert-info" name="couponTitle"/>
+                                <br/>
+                                <label>优惠内容：</label>
+                                <input type="text" class="form-control alert-info" name="couponDetail"/>
+                                <br/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premise-intro-editor">
+                        <h2 class="sub-header">楼盘介绍</h2>
+
+                        <div class="row">
+                            <div class="col-xs-6 placeholder">
+                                <input type="text" class="form-control alert-info" name="premiseAdvantage1"/>
+                                <br/>
+                                <input type="text" class="form-control alert-info" name="premiseAdvantage2"/>
+                                <br/>
+                                <input type="text" class="form-control alert-info" name="premiseAdvantage3"/>
+                                <br/>
+                                <input type="text" class="form-control alert-info" name="premiseAdvantage4"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="house-type-editor">
+                        <h2 class="sub-header">户型鉴赏</h2>
+
+                        <div class="row">
+                            <div class="col-xs-6 placeholder">
+                                <label>户型图：</label>
+                                <input type="file" class="form-control alert-info" name="houseTypePic"/>
+                                <br>
+                                <label>项目地址：</label>
+                                <input type="text" class="form-control alert-info" name="projectAddress"
+                                       placeholder="项目地址"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="submit-btn">
+                        <input type="submit" class="btn btn-success" value="提交"/>
                     </div>
                 </form>
             </div>
