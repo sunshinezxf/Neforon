@@ -147,7 +147,7 @@ public class ManageController {
             view.setViewName("error");
             return view;
         }
-        AveragePrice avg = new AveragePrice(projectId, companyName, avgPrice, avtivityStatus);
+        AveragePrice avg = new AveragePrice(projectId, companyName, avgPrice, activityStatus);
 
         /*获取全景图*/
         MultipartFile premiseView = ((MultipartRequest) request).getFile("premisePic");
