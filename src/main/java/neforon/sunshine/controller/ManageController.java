@@ -1,8 +1,10 @@
 package neforon.sunshine.controller;
 
+import neforon.sunshine.guidance.facade.GuidanceFacade;
 import neforon.sunshine.manager.facade.ManagerFacade;
 import neforon.sunshine.model.*;
 import neforon.sunshine.project.facade.ProjectFacade;
+import neforon.sunshine.qrcode.facade.CodeFacade;
 import neforon.sunshine.utils.*;
 import neforon.sunshine.vo.PremiseVo;
 import neforon.sunshine.vo.nullvo.NullPremiseVo;
@@ -30,6 +32,12 @@ public class ManageController {
 
     @Autowired
     private ProjectFacade projectFacade;
+
+    @Autowired
+    private CodeFacade codeFacade;
+
+    @Autowired
+    private GuidanceFacade guidanceFacade;
 
     @RequestMapping(method = RequestMethod.POST, value = URLConst.NEFORON_AUTHENTICATION)
     public ModelAndView login(HttpServletRequest request, HttpServletResponse response) {
@@ -104,6 +112,11 @@ public class ManageController {
             return view;
         }
         QRCode qrCode = new QRCode(projectId, qrPath);
+        ResultData insertQRStatus = codeFacade.addQRCode(qrCode);
+        if (insertQRStatus.getStatusCode() == ResponseCode.MESSAGE_NULL) {
+            view.setViewName("error");
+            return view;
+        }
 
         /*获取扫码标题*/
         String guidanceTitle = DataHandle.handleData(request.getParameter("guidanceTitle"));
@@ -111,7 +124,6 @@ public class ManageController {
             view.setViewName("error");
             return view;
         }
-
         /*获取扫码步骤*/
         String guidanceStep1 = DataHandle.handleData(request.getParameter("guidanceStep1"));
         String guidanceStep2 = DataHandle.handleData(request.getParameter("guidanceStep2"));
@@ -123,7 +135,11 @@ public class ManageController {
         guidances.add(new GuidanceItem(projectId, guidanceTitle, guidanceStep2, 2));
         guidances.add(new GuidanceItem(projectId, guidanceTitle, guidanceStep3, 3));
         guidances.add(new GuidanceItem(projectId, guidanceTitle, guidanceStep4, 4));
-
+        ResultData insertGuidanceMessage = guidanceFacade.addGuidance(guidances);
+        if (insertGuidanceMessage.getStatusCode() == ResponseCode.MESSAGE_NULL) {
+            view.setViewName("error");
+            return view;
+        }
 
         /*获取赚钱方法*/
         String earnCompany = request.getParameter("earnCompany");
@@ -168,6 +184,22 @@ public class ManageController {
         Coupon coupon = new Coupon(projectId, couponTitle, couponDetail);
 
         /*楼盘介绍*/
+        String advantage1 = request.getParameter("premiseAdvantage1");
+        String advantage2 = request.getParameter("premiseAdvantage2");
+        String advantage3 = request.getParameter("premiseAdvantage3");
+        String advantage4 = request.getParameter("premiseAdvantage4");
+
+        List<PremiseAdvantageItem> premiseAdvantages = new ArrayList<PremiseAdvantageItem>();
+        premiseAdvantages.add(new PremiseAdvantageItem(projectId, advantage1, 1));
+        premiseAdvantages.add(new PremiseAdvantageItem(projectId, advantage2, 2));
+        premiseAdvantages.add(new PremiseAdvantageItem(projectId, advantage3, 3));
+        premiseAdvantages.add(new PremiseAdvantageItem(projectId, advantage4, 4));
+
+        /*项目户型和地址*/
+        MultipartFile houseTypeView = ((MultipartRequest) request).getFile("houseTypePic");
+        String housePicPath = FileUpload.saveHouseTypeView(houseTypeView, context);
+        String projectAddress = request.getParameter("projectAddress");
+        HouseType houseType = new HouseType(projectId, housePicPath, projectAddress);
 
         view.setViewName("result");
         return view;

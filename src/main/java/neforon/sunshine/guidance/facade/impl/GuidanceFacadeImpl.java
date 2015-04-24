@@ -2,8 +2,11 @@ package neforon.sunshine.guidance.facade.impl;
 
 import neforon.sunshine.guidance.facade.GuidanceFacade;
 import neforon.sunshine.guidance.service.GuidanceService;
+import neforon.sunshine.model.GuidanceItem;
 import neforon.sunshine.utils.ResultData;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
 
 /**
  * Created by sunshine on 4/8/15.
@@ -28,16 +31,10 @@ public class GuidanceFacadeImpl implements GuidanceFacade {
     }
 
     @Override
-    public ResultData queryGuidanceTitle() {
+    public ResultData addGuidance(List<GuidanceItem> guidances) {
         ResultData result = new ResultData();
-        result = guidanceService.queryQRGuidanceTitle();
+        result = guidanceService.addQRGuidances(guidances);
         return result;
     }
 
-    @Override
-    public ResultData queryGuidances() {
-        ResultData result = new ResultData();
-
-        return result;
-    }
 }

@@ -7,19 +7,6 @@
         <result property="description" column="guidance_detail"/>
     </resultMap>
 
-    <resultMap id="guidanceTitle" type="neforon.sunshine.model.GuidanceTitle">
-        <result property="titleId" column="guidance_title_id"/>
-        <result property="titlename" column="guidance_title"/>
-    </resultMap>
-
-    <resultMap id="modifyGuidance" type="neforon.sunshine.model.GuidanceItem">
-        <result property="id" column="id"/>
-        <result property="projectId" column="project_id"/>
-        <result property="guidanceTitle" column="guidance_title"/>
-        <result property="guidanceDetail" column="guidance_detail"/>
-        <result property="step" column="step"/>
-    </resultMap>
-
     <!-- 查询用户扫码步骤 -->
     <select id="selectGuidance" resultMap="guidance">
         SELECT guidance_title, step, guidance_detail
@@ -27,14 +14,11 @@
         WHERE project_id=#{projectId};
     </select>
 
-    <select id="selectGuidanceTitle" resultMap="guidanceTitle">
-        SELECT DISTINCT guidance_title_id, guidance_title
-        FROM guidance;
-    </select>
+    <!-- 插入用户扫码步骤 -->
+    <insert id="insertGuidanceItem" parameterType="neforon.sunshine.model.GuidanceItem" useGeneratedKeys="true"
+            keyProperty="id">
+        INSERT INTO guidance (project_id, guidance_title, guidance_detail, step)
+        VALUES (#{projectId}, #{guidanceTitle}, #{guidanceDetail}, #{step});
+    </insert>
 
-    <!-- 查询所有的扫码步骤 -->
-    <select id="selectGuidances" resultMap="modifyGuidance">
-        SELECT id, project_id, guidance_title, guidance_detail, step
-        FROM guidance;
-    </select>
 </mapper>

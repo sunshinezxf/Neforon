@@ -11,4 +11,10 @@
         FROM qrcode
         WHERE project_id=#{projectId};
     </select>
+
+    <!-- 插入二维码图片路径信息，为相对路径 -->
+    <insert id="insertProject" parameterType="neforon.sunshine.model.Project" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO qrcode (project_id, qr_path)
+        VALUES (#{projectId}, #{qrPath});
+    </insert>
 </mapper>

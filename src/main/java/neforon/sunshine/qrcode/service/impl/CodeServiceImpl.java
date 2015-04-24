@@ -1,5 +1,6 @@
 package neforon.sunshine.qrcode.service.impl;
 
+import neforon.sunshine.model.QRCode;
 import neforon.sunshine.qrcode.dao.CodeDao;
 import neforon.sunshine.qrcode.service.CodeService;
 import neforon.sunshine.qrcode.vo.QRCodeVo;
@@ -23,6 +24,19 @@ public class CodeServiceImpl implements CodeService {
         } else {
             result.setStatusCode(ResponseCode.MESSAGE_OK);
             result.setData(vo);
+        }
+        return result;
+    }
+
+    @Override
+    public ResultData addCode(QRCode code) {
+        ResultData result = new ResultData();
+        boolean status = codeDao.insertQRCode(code.getProjectId(), code.getQrPath());
+        if (status == true) {
+            result.setStatusCode(ResponseCode.MESSAGE_OK);
+            result.setData(status);
+        } else {
+            result.setStatusCode(ResponseCode.MESSAGE_NULL);
         }
         return result;
     }

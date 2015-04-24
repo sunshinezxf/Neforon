@@ -1,5 +1,6 @@
 package neforon.sunshine.qrcode.service;
 
+import neforon.sunshine.model.QRCode;
 import neforon.sunshine.utils.ResultData;
 
 /**
@@ -7,4 +8,6 @@ import neforon.sunshine.utils.ResultData;
  */
 public interface CodeService {
     public ResultData queryCodeById(String projectId);
+
+    public ResultData addCode(QRCode code);
 }

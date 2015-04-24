@@ -1,5 +1,6 @@
 package neforon.sunshine.qrcode.facade.impl;
 
+import neforon.sunshine.model.QRCode;
 import neforon.sunshine.qrcode.facade.CodeFacade;
 import neforon.sunshine.qrcode.service.CodeService;
 import neforon.sunshine.utils.ResultData;
@@ -16,6 +17,13 @@ public class CodeFacadeImpl implements CodeFacade {
     public ResultData queryCode(String projectId) {
         ResultData result = new ResultData();
         result = codeService.queryCodeById(projectId);
+        return result;
+    }
+
+    @Override
+    public ResultData addQRCode(QRCode code) {
+        ResultData result = new ResultData();
+        result = codeService.addCode(code);
         return result;
     }
 }

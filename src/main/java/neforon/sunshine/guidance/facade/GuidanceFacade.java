@@ -1,6 +1,9 @@
 package neforon.sunshine.guidance.facade;
 
+import neforon.sunshine.model.GuidanceItem;
 import neforon.sunshine.utils.ResultData;
+
+import java.util.List;
 
 /**
  * Created by sunshine on 4/8/15.
@@ -8,7 +11,5 @@ import neforon.sunshine.utils.ResultData;
 public interface GuidanceFacade {
     public ResultData queryGuidance(String projectId);
 
-    public ResultData queryGuidanceTitle();
-
-    public ResultData queryGuidances();
+    public ResultData addGuidance(List<GuidanceItem> guidances);
 }

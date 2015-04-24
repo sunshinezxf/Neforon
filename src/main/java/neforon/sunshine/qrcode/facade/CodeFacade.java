@@ -1,5 +1,6 @@
 package neforon.sunshine.qrcode.facade;
 
+import neforon.sunshine.model.QRCode;
 import neforon.sunshine.utils.ResultData;
 
 /**
@@ -7,4 +8,6 @@ import neforon.sunshine.utils.ResultData;
  */
 public interface CodeFacade {
     public ResultData queryCode(String projectId);
+
+    public ResultData addQRCode(QRCode code);
 }

@@ -1,6 +1,9 @@
 package neforon.sunshine.guidance.service;
 
+import neforon.sunshine.model.GuidanceItem;
 import neforon.sunshine.utils.ResultData;
+
+import java.util.List;
 
 /**
  * Created by sunshine on 4/8/15.
@@ -8,7 +11,5 @@ import neforon.sunshine.utils.ResultData;
 public interface GuidanceService {
     public ResultData queryQRGuidanceById(String projectId);
 
-    public ResultData queryQRGuidanceTitle();
-
-    public ResultData queryQRGuidances();
+    public ResultData addQRGuidances(List<GuidanceItem> guidances);
 }
