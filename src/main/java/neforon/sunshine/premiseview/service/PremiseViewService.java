@@ -1,5 +1,6 @@
 package neforon.sunshine.premiseview.service;
 
+import neforon.sunshine.model.PremiseView;
 import neforon.sunshine.utils.ResultData;
 
 /**
@@ -7,4 +8,6 @@ import neforon.sunshine.utils.ResultData;
  */
 public interface PremiseViewService {
     public ResultData queryPremiseViewById(String projectId);
+
+    public ResultData addPremiseView(PremiseView view);
 }

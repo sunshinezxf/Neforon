@@ -1,5 +1,6 @@
 package neforon.sunshine.coupon.service;
 
+import neforon.sunshine.model.Coupon;
 import neforon.sunshine.utils.ResultData;
 
 /**
@@ -7,4 +8,6 @@ import neforon.sunshine.utils.ResultData;
  */
 public interface CouponService {
     public ResultData queryCouponById(String projectId);
+
+    public ResultData addCoupon(Coupon coupon);
 }

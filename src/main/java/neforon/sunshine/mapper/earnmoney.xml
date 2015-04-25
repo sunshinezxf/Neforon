@@ -14,4 +14,11 @@
         FROM earn
         WHERE project_id=#{projectId};
     </select>
+
+    <!-- 插入赚钱的方法 -->
+    <insert id="insertEarnItem" parameterType="neforon.sunshine.model.EarnItem" useGeneratedKeys="true"
+            keyProperty="id">
+        INSERT INTO earn(project_id, earncompany, earnslogan, methoddesc, step)
+        VALUES (#{projectId}, #{earnCompany}, #{earnSlogan}, #{methodDesc}, #{step});
+    </insert>
 </mapper>

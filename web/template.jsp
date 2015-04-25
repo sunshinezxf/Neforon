@@ -112,7 +112,7 @@
                                        placeholder="赚钱的公司标语"/>
                                 <br/>
                                 <label>赚钱口号：</label>
-                                <input type="text" class="form-control" name="earnCompany"
+                                <input type="text" class="form-control" name="earnSlogan"
                                        value="${template.earnSlogan}"/>
                                 <br/>
                                 <label>赚钱方法：</label>

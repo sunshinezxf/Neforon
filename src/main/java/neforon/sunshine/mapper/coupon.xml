@@ -12,4 +12,10 @@
         FROM coupon
         WHERE project_id=#{projectId};
     </select>
+
+    <!-- 插入优惠信息 -->
+    <insert id="insertCoupon" parameterType="neforon.sunshine.model.Coupon" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO coupon(project_id, coupon_title, coupon_detail)
+        VALUES (#{projectId}, #{couponTitle}, #{couponDetail});
+    </insert>
 </mapper>

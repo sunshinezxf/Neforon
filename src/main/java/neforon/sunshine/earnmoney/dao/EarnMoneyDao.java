@@ -1,6 +1,7 @@
 package neforon.sunshine.earnmoney.dao;
 
 import neforon.sunshine.earnmoney.vo.EarnMoneyItemVo;
+import neforon.sunshine.model.EarnItem;
 
 import java.util.List;
 
@@ -9,4 +10,6 @@ import java.util.List;
  */
 public interface EarnMoneyDao {
     public List<EarnMoneyItemVo> selectEarnMoneysItems(String projectId);
+
+    public boolean insertEarnMethodItem(EarnItem item);
 }

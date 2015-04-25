@@ -1,5 +1,6 @@
 package neforon.sunshine.premiseview.service.impl;
 
+import neforon.sunshine.model.PremiseView;
 import neforon.sunshine.premiseview.dao.PremiseViewDao;
 import neforon.sunshine.premiseview.service.PremiseViewService;
 import neforon.sunshine.premiseview.vo.PremiseViewVo;
@@ -23,6 +24,19 @@ public class PremiseViewServiceImpl implements PremiseViewService {
         } else {
             result.setStatusCode(ResponseCode.MESSAGE_OK);
             result.setData(vo);
+        }
+        return result;
+    }
+
+    @Override
+    public ResultData addPremiseView(PremiseView view) {
+        ResultData result = new ResultData();
+        boolean status = premiseViewDao.insertPremiseView(view);
+        if (status) {
+            result.setStatusCode(ResponseCode.MESSAGE_OK);
+            result.setData(status);
+        } else {
+            result.setStatusCode(ResponseCode.MESSAGE_NULL);
         }
         return result;
     }

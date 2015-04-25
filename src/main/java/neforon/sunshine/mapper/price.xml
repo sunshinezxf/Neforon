@@ -13,4 +13,11 @@
         FROM avgprice
         WHERE project_id=#{projectId};
     </select>
+
+    <!-- 插入均价活动 -->
+    <insert id="insertAvgPrice" parameterType="neforon.sunshine.model.AveragePrice" useGeneratedKeys="true"
+            keyProperty="id">
+        INSERT INTO avgprice(project_id, company_name, avg_price, activity_state)
+        VALUES (#{projectId}, #{companyName}, #{avgPrice}, #{activityState});
+    </insert>
 </mapper>

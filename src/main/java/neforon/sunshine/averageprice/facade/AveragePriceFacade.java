@@ -1,5 +1,6 @@
 package neforon.sunshine.averageprice.facade;
 
+import neforon.sunshine.model.AveragePrice;
 import neforon.sunshine.utils.ResultData;
 
 /**
@@ -7,4 +8,6 @@ import neforon.sunshine.utils.ResultData;
  */
 public interface AveragePriceFacade {
     public ResultData queryAveragePrice(String projectId);
+
+    public ResultData addAveragePrice(AveragePrice price);
 }

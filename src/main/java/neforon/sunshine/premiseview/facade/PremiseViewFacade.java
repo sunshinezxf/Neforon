@@ -1,5 +1,6 @@
 package neforon.sunshine.premiseview.facade;
 
+import neforon.sunshine.model.PremiseView;
 import neforon.sunshine.utils.ResultData;
 
 /**
@@ -7,4 +8,6 @@ import neforon.sunshine.utils.ResultData;
  */
 public interface PremiseViewFacade {
     public ResultData queryPremiseView(String projectId);
+
+    public ResultData addPremiseView(PremiseView view);
 }

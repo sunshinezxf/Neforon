@@ -2,6 +2,7 @@ package neforon.sunshine.averageprice.facade.impl;
 
 import neforon.sunshine.averageprice.facade.AveragePriceFacade;
 import neforon.sunshine.averageprice.service.AveragePriceService;
+import neforon.sunshine.model.AveragePrice;
 import neforon.sunshine.utils.ResultData;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -16,6 +17,13 @@ public class AveragePriceFacadeImpl implements AveragePriceFacade {
     public ResultData queryAveragePrice(String projectId) {
         ResultData result = new ResultData();
         result = averagePriceService.queryAveragePriceById(projectId);
+        return result;
+    }
+
+    @Override
+    public ResultData addAveragePrice(AveragePrice price) {
+        ResultData result = new ResultData();
+        result = averagePriceService.addAveragePrice(price);
         return result;
     }
 }

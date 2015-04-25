@@ -4,6 +4,7 @@ import neforon.sunshine.earnmoney.dao.EarnMoneyDao;
 import neforon.sunshine.earnmoney.service.EarnMoneyService;
 import neforon.sunshine.earnmoney.vo.EarnMoneyItemVo;
 import neforon.sunshine.earnmoney.vo.EarnMoneyVo;
+import neforon.sunshine.model.EarnItem;
 import neforon.sunshine.utils.ResponseCode;
 import neforon.sunshine.utils.ResultData;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,20 @@ public class EarnMoneyServiceImpl implements EarnMoneyService {
         } else {
             result.setStatusCode(ResponseCode.MESSAGE_NULL);
         }
+        return result;
+    }
+
+    @Override
+    public ResultData addEarnMethods(List<EarnItem> list) {
+        ResultData result = new ResultData();
+        for (EarnItem item : list) {
+            boolean status = earnMoneyDao.insertEarnMethodItem(item);
+            if (!status) {
+                result.setStatusCode(ResponseCode.MESSAGE_NULL);
+                return result;
+            }
+        }
+        result.setStatusCode(ResponseCode.MESSAGE_OK);
         return result;
     }
 }

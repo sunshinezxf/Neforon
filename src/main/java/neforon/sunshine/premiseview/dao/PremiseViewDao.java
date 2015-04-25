@@ -1,5 +1,6 @@
 package neforon.sunshine.premiseview.dao;
 
+import neforon.sunshine.model.PremiseView;
 import neforon.sunshine.premiseview.vo.PremiseViewVo;
 
 /**
@@ -7,4 +8,6 @@ import neforon.sunshine.premiseview.vo.PremiseViewVo;
  */
 public interface PremiseViewDao {
     public PremiseViewVo selectPremiseViewById(String projectId);
+
+    public boolean insertPremiseView(PremiseView view);
 }

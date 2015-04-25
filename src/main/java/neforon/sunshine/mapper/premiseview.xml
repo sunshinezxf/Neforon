@@ -11,4 +11,11 @@
         FROM premiseview
         WHERE project_id=#{projectId};
     </select>
+
+    <!-- 插入楼盘的图片信息 -->
+    <insert id="insertPremise" parameterType="neforon.sunshine.model.PremiseView" useGeneratedKeys="true"
+            keyProperty="id">
+        INSERT INTO premiseview(project_id, preview_view_path)
+        VALUES (#{projectId}, #{premiseViewPath});
+    </insert>
 </mapper>

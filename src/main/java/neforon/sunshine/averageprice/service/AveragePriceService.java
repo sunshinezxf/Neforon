@@ -1,5 +1,6 @@
 package neforon.sunshine.averageprice.service;
 
+import neforon.sunshine.model.AveragePrice;
 import neforon.sunshine.utils.ResultData;
 
 /**
@@ -7,4 +8,6 @@ import neforon.sunshine.utils.ResultData;
  */
 public interface AveragePriceService {
     public ResultData queryAveragePriceById(String projectId);
+
+    public ResultData addAveragePrice(AveragePrice price);
 }

@@ -1,5 +1,6 @@
 package neforon.sunshine.premiseview.facade.impl;
 
+import neforon.sunshine.model.PremiseView;
 import neforon.sunshine.premiseview.facade.PremiseViewFacade;
 import neforon.sunshine.premiseview.service.PremiseViewService;
 import neforon.sunshine.utils.ResultData;
@@ -16,6 +17,13 @@ public class PremiseViewFacadeImpl implements PremiseViewFacade {
     public ResultData queryPremiseView(String projectId) {
         ResultData result = new ResultData();
         result = premiseViewService.queryPremiseViewById(projectId);
+        return result;
+    }
+
+    @Override
+    public ResultData addPremiseView(PremiseView view) {
+        ResultData result = new ResultData();
+        result = premiseViewService.addPremiseView(view);
         return result;
     }
 }

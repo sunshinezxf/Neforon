@@ -2,6 +2,7 @@ package neforon.sunshine.coupon.facade.impl;
 
 import neforon.sunshine.coupon.facade.CouponFacade;
 import neforon.sunshine.coupon.service.CouponService;
+import neforon.sunshine.model.Coupon;
 import neforon.sunshine.utils.ResultData;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -16,6 +17,13 @@ public class CouponFacadeImpl implements CouponFacade {
     public ResultData queryCoupon(String projectId) {
         ResultData result = new ResultData();
         result = couponService.queryCouponById(projectId);
+        return result;
+    }
+
+    @Override
+    public ResultData addCoupon(Coupon coupon) {
+        ResultData result = new ResultData();
+        result = couponService.addCoupon(coupon);
         return result;
     }
 }
