@@ -12,4 +12,11 @@
         FROM housetype
         WHERE project_id=#{projectId};
     </select>
+
+    <!-- 插入项目户型和地址信息 -->
+    <insert id="insertHouseType" parameterType="neforon.sunshine.model.HouseType" useGeneratedKeys="true"
+            keyProperty="id">
+        INSERT INTO housetype(project_id, house_pic_path, address)
+        VALUES (#{projectId}, #{housePicPath}, #{address});
+    </insert>
 </mapper>

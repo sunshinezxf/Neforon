@@ -1,9 +1,11 @@
 package neforon.sunshine.controller;
 
 import neforon.sunshine.averageprice.facade.AveragePriceFacade;
+import neforon.sunshine.buildingintro.facade.PremiseAdvantageFacade;
 import neforon.sunshine.coupon.facade.CouponFacade;
 import neforon.sunshine.earnmoney.facade.EarnMoneyFacade;
 import neforon.sunshine.guidance.facade.GuidanceFacade;
+import neforon.sunshine.housetype.facade.HouseTypeFacade;
 import neforon.sunshine.manager.facade.ManagerFacade;
 import neforon.sunshine.model.*;
 import neforon.sunshine.premiseview.facade.PremiseViewFacade;
@@ -54,6 +56,12 @@ public class ManageController {
 
     @Autowired
     private CouponFacade couponFacade;
+
+    @Autowired
+    private PremiseAdvantageFacade premiseAdvantageFacade;
+
+    @Autowired
+    private HouseTypeFacade houseTypeFacade;
 
     @RequestMapping(method = RequestMethod.POST, value = URLConst.NEFORON_AUTHENTICATION)
     public ModelAndView login(HttpServletRequest request, HttpServletResponse response) {
@@ -128,11 +136,11 @@ public class ManageController {
             return view;
         }
         QRCode qrCode = new QRCode(projectId, qrPath);
-//        ResultData insertQRStatus = codeFacade.addQRCode(qrCode);
-//        if (insertQRStatus.getStatusCode() == ResponseCode.MESSAGE_NULL) {
-//            view.setViewName("error");
-//            return view;
-//        }
+        ResultData insertQRStatus = codeFacade.addQRCode(qrCode);
+        if (insertQRStatus.getStatusCode() == ResponseCode.MESSAGE_NULL) {
+            view.setViewName("error");
+            return view;
+        }
 
         /*获取扫码标题*/
         String guidanceTitle = DataHandle.handleData(request.getParameter("guidanceTitle"));
@@ -151,11 +159,11 @@ public class ManageController {
         guidances.add(new GuidanceItem(projectId, guidanceTitle, guidanceStep2, 2));
         guidances.add(new GuidanceItem(projectId, guidanceTitle, guidanceStep3, 3));
         guidances.add(new GuidanceItem(projectId, guidanceTitle, guidanceStep4, 4));
-//        ResultData insertGuidanceMessage = guidanceFacade.addGuidance(guidances);
-//        if (insertGuidanceMessage.getStatusCode() == ResponseCode.MESSAGE_NULL) {
-//            view.setViewName("error");
-//            return view;
-//        }
+        ResultData insertGuidanceMessage = guidanceFacade.addGuidance(guidances);
+        if (insertGuidanceMessage.getStatusCode() == ResponseCode.MESSAGE_NULL) {
+            view.setViewName("error");
+            return view;
+        }
 
         /*获取赚钱方法*/
         String earnCompany = request.getParameter("earnCompany");
@@ -170,11 +178,11 @@ public class ManageController {
         earns.add(new EarnItem(projectId, earnCompany, earnSlogan, earnMethod2, 2));
         earns.add(new EarnItem(projectId, earnCompany, earnSlogan, earnMethod3, 3));
         earns.add(new EarnItem(projectId, earnCompany, earnSlogan, earnMethod4, 4));
-//        ResultData insertEarnMethod = earnMoneyFacade.addEarnMethods(earns);
-//        if (insertEarnMethod.getStatusCode() == ResponseCode.MESSAGE_NULL) {
-//            view.setViewName("error");
-//            return view;
-//        }
+        ResultData insertEarnMethod = earnMoneyFacade.addEarnMethods(earns);
+        if (insertEarnMethod.getStatusCode() == ResponseCode.MESSAGE_NULL) {
+            view.setViewName("error");
+            return view;
+        }
 
 
         /*获取价钱*/
@@ -186,11 +194,11 @@ public class ManageController {
             return view;
         }
         AveragePrice avg = new AveragePrice(projectId, companyName, avgPrice, activityStatus);
-//        ResultData insertAveragePriceMessage = averagePriceFacade.addAveragePrice(avg);
-//        if (insertAveragePriceMessage.getStatusCode() == ResponseCode.MESSAGE_NULL) {
-//            view.setViewName("error");
-//            return view;
-//        }
+        ResultData insertAveragePriceMessage = averagePriceFacade.addAveragePrice(avg);
+        if (insertAveragePriceMessage.getStatusCode() == ResponseCode.MESSAGE_NULL) {
+            view.setViewName("error");
+            return view;
+        }
 
 
         /*获取全景图*/
@@ -201,11 +209,11 @@ public class ManageController {
             return view;
         }
         PremiseView buildingView = new PremiseView(projectId, premisePath);
-//        ResultData insertBuildingViewMessage = premiseViewFacade.addPremiseView(buildingView);
-//        if (insertBuildingViewMessage.getStatusCode() == ResponseCode.MESSAGE_NULL) {
-//            view.setViewName("error");
-//            return view;
-//        }
+        ResultData insertBuildingViewMessage = premiseViewFacade.addPremiseView(buildingView);
+        if (insertBuildingViewMessage.getStatusCode() == ResponseCode.MESSAGE_NULL) {
+            view.setViewName("error");
+            return view;
+        }
 
         /*获取优惠设置*/
         String couponTitle = request.getParameter("couponTitle");
@@ -215,11 +223,11 @@ public class ManageController {
             return view;
         }
         Coupon coupon = new Coupon(projectId, couponTitle, couponDetail);
-//        ResultData insertCouponMessage = couponFacade.addCoupon(coupon);
-//        if (insertCouponMessage.getStatusCode() == ResponseCode.MESSAGE_NULL) {
-//            view.setViewName("error");
-//            return view;
-//        }
+        ResultData insertCouponMessage = couponFacade.addCoupon(coupon);
+        if (insertCouponMessage.getStatusCode() == ResponseCode.MESSAGE_NULL) {
+            view.setViewName("error");
+            return view;
+        }
 
 
         /*楼盘介绍*/
@@ -234,13 +242,27 @@ public class ManageController {
         premiseAdvantages.add(new PremiseAdvantageItem(projectId, advantage3, 3));
         premiseAdvantages.add(new PremiseAdvantageItem(projectId, advantage4, 4));
 
+        ResultData insertPremiseAdvantageMessage = premiseAdvantageFacade.addPremiseAdvantage(premiseAdvantages);
+        if (insertPremiseAdvantageMessage.getStatusCode() == ResponseCode.MESSAGE_NULL) {
+            view.setViewName("error");
+            return view;
+        }
+
+
         /*项目户型和地址*/
         MultipartFile houseTypeView = ((MultipartRequest) request).getFile("houseTypePic");
         String housePicPath = FileUpload.saveHouseTypeView(houseTypeView, context);
         String projectAddress = request.getParameter("projectAddress");
         HouseType houseType = new HouseType(projectId, housePicPath, projectAddress);
 
+        ResultData insertHouseTypeMessage = houseTypeFacade.addHouseType(houseType);
+        if (insertHouseTypeMessage.getStatusCode() == ResponseCode.MESSAGE_NULL) {
+            view.setViewName("error");
+            return view;
+        }
+
         view.setViewName("result");
+        view.addObject("url", projectId);
         return view;
     }
 }

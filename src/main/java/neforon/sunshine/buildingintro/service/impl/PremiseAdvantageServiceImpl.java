@@ -4,6 +4,7 @@ import neforon.sunshine.buildingintro.dao.PremiseAdvantageDao;
 import neforon.sunshine.buildingintro.service.PremiseAdvantageService;
 import neforon.sunshine.buildingintro.vo.PremiseAdvantageItemVo;
 import neforon.sunshine.buildingintro.vo.PremiseAdvantageVo;
+import neforon.sunshine.model.PremiseAdvantageItem;
 import neforon.sunshine.utils.ResponseCode;
 import neforon.sunshine.utils.ResultData;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,20 @@ public class PremiseAdvantageServiceImpl implements PremiseAdvantageService {
             result.setStatusCode(ResponseCode.MESSAGE_OK);
             result.setData(vo);
         }
+        return result;
+    }
+
+    @Override
+    public ResultData addPremiseAdvantage(List<PremiseAdvantageItem> list) {
+        ResultData result = new ResultData();
+        for (PremiseAdvantageItem item : list) {
+            boolean status = premiseAdvantageDao.insertPremiseAdvantageItem(item);
+            if (!status) {
+                result.setStatusCode(ResponseCode.MESSAGE_NULL);
+                return result;
+            }
+        }
+        result.setStatusCode(ResponseCode.MESSAGE_OK);
         return result;
     }
 }

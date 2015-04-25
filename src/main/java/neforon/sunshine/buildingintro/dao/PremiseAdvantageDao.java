@@ -1,6 +1,7 @@
 package neforon.sunshine.buildingintro.dao;
 
 import neforon.sunshine.buildingintro.vo.PremiseAdvantageItemVo;
+import neforon.sunshine.model.PremiseAdvantageItem;
 
 import java.util.List;
 
@@ -9,4 +10,6 @@ import java.util.List;
  */
 public interface PremiseAdvantageDao {
     public List<PremiseAdvantageItemVo> selectPremiseAdvantageById(String projectId);
+
+    public boolean insertPremiseAdvantageItem(PremiseAdvantageItem item);
 }

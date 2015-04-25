@@ -1,5 +1,6 @@
 package neforon.sunshine.housetype.facade;
 
+import neforon.sunshine.model.HouseType;
 import neforon.sunshine.utils.ResultData;
 
 /**
@@ -7,4 +8,6 @@ import neforon.sunshine.utils.ResultData;
  */
 public interface HouseTypeFacade {
     public ResultData queryHouseType(String projectId);
+
+    public ResultData addHouseType(HouseType type);
 }
