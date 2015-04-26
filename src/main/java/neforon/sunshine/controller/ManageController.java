@@ -124,6 +124,11 @@ public class ManageController {
         }
 
         Project project = new Project(projectId, projectName);
+        ResultData insertProjectMessage = projectFacade.addProject(project);
+        if (insertProjectMessage.getStatusCode() == ResponseCode.MESSAGE_NULL) {
+            view.setViewName("error");
+            return view;
+        }
 
         /*获取项目的上下文路径*/
         String context = request.getSession().getServletContext().getRealPath("/");
@@ -261,6 +266,7 @@ public class ManageController {
             return view;
         }
 
+        view.setViewName("result");
         String url = IPTeller.getIPv4Address(projectId);
         view.addObject("url", url);
         return view;

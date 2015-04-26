@@ -31,6 +31,19 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
+    public ResultData addProject(Project project) {
+        ResultData result = new ResultData();
+        boolean status = projectDao.insertProject(project);
+        if (status) {
+            result.setStatusCode(ResponseCode.MESSAGE_OK);
+            result.setData(status);
+        } else {
+            result.setStatusCode(ResponseCode.MESSAGE_NULL);
+        }
+        return result;
+    }
+
+    @Override
     public ResultData queryActiveProjects() {
         ResultData result = new ResultData();
         List<Project> project = projectDao.selectActiveProjects();

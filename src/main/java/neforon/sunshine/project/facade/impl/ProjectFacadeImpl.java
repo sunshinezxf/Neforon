@@ -1,5 +1,6 @@
 package neforon.sunshine.project.facade.impl;
 
+import neforon.sunshine.model.Project;
 import neforon.sunshine.project.facade.ProjectFacade;
 import neforon.sunshine.project.service.ProjectService;
 import neforon.sunshine.utils.ResultData;
@@ -16,6 +17,13 @@ public class ProjectFacadeImpl implements ProjectFacade {
     public ResultData queryProject(String projectId) {
         ResultData result = new ResultData();
         result = projectService.queryProjectById(projectId);
+        return result;
+    }
+
+    @Override
+    public ResultData addProject(Project project) {
+        ResultData result = new ResultData();
+        result = projectService.addProject(project);
         return result;
     }
 

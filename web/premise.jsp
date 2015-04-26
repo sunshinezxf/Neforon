@@ -29,7 +29,7 @@
                 <c:forEach var="item" items="${premise.guidanceDetail}" varStatus="num">
                     <p class="desc-qr-method">
                             ${num.index + 1}、&nbsp;&nbsp;
-                            ${item}"。
+                            ${item}"
                     </p>
                 </c:forEach>
 
@@ -84,7 +84,7 @@
 
             <ul class="selling-character-desc">
                 <c:forEach var="item" items="${premise.premiseAdvantages}">
-                    <li><c:out value="${item}"></c:out>。</li>
+                    <li><c:out value="${item}"></c:out></li>
                 </c:forEach>
             </ul>
             <br/>
@@ -100,7 +100,7 @@
             <img class="type-pic" src="${path}${premise.houseTypePic}"/>
 
             <div class="project-address">
-                <p class="address">${premise.projectAddress}</p>
+                <p class="address">项目地址：${premise.projectAddress}</p>
             </div>
             <br>
         </div>

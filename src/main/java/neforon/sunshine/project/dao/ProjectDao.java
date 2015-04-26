@@ -11,5 +11,7 @@ import java.util.List;
 public interface ProjectDao {
     public ProjectVo selectProjectById(String projectId);
 
+    public boolean insertProject(Project project);
+
     public List<Project> selectActiveProjects();
 }

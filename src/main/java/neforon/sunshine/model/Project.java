@@ -7,6 +7,7 @@ public class Project {
     private Integer id;
     private String projectId;
     private String projectName;
+    private Integer state;
 
     public Project() {
 
@@ -39,5 +40,13 @@ public class Project {
 
     public void setProjectName(String projectName) {
         this.projectName = projectName;
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
     }
 }
