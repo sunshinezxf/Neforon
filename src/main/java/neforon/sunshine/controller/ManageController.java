@@ -261,8 +261,13 @@ public class ManageController {
             return view;
         }
 
+        String host = IPTeller.getIPv4Address();
+        StringBuffer url = new StringBuffer();
+        url.append(host);
+        url.append(":8080/neforon/premise/");
+        url.append(projectId);
         view.setViewName("result");
-        view.addObject("url", projectId);
+        view.addObject("url", url);
         return view;
     }
 }
