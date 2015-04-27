@@ -307,7 +307,6 @@ public class ManageController {
         }
 
         view.setViewName("manage");
-
         return view;
     }
 }

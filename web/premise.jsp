@@ -29,7 +29,7 @@
                 <c:forEach var="item" items="${premise.guidanceDetail}" varStatus="num">
                     <p class="desc-qr-method">
                             ${num.index + 1}、&nbsp;&nbsp;
-                            ${item}"
+                            ${item}
                     </p>
                 </c:forEach>
 

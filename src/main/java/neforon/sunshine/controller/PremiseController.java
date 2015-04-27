@@ -74,6 +74,8 @@ public class PremiseController {
             premiseVo.setProject(project);
         } else {
             view.setViewName("error");
+            view.addObject("title", "操作失败");
+            view.addObject("description", "你要访问的楼盘信息已失效");
             return view;
         }
 

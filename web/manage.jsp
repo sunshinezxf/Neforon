@@ -96,7 +96,8 @@
                                 <td>${item.projectId}</td>
                                 <td>${item.projectName}</td>
                                 <td>
-                                    <form class="delete-premise" action="${path.concat('/neforon/draw')}" method="post">
+                                    <form class="delete-premise" style="margin-bottom: 0px;"
+                                          action="${path.concat('/neforon/draw')}" method="post">
                                         <input type="hidden" name="projectId" value="${item.projectId}"/>
                                         <input type="submit" class="btn btn-link btn-success" value="删除"/>
                                     </form>
