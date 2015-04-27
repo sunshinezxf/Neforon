@@ -12,4 +12,6 @@ public class URLConst {
     public final static String NEFORON_CREATE = "/neforon/create";
 
     public final static String NEFORON_SUBMIT = "/neforon/submit";
+
+    public final static String NEFORON_DELETE = "/neforon/draw";
 }

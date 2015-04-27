@@ -50,9 +50,9 @@
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
                 <li class="active"><a href="#">总览 <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">楼盘管理</a></li>
-                <li><a href="#">添加楼盘</a></li>
-                <li><a href="#">历史楼盘</a></li>
+                <li><a href="#active-premise-management">楼盘管理</a></li>
+                <li><a href="#create-new-premise">添加楼盘</a></li>
+                <li><a href="#history-premise">历史楼盘</a></li>
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -76,24 +76,31 @@
                     <span class="text-muted">请联系sunshinezxf@me.com</span>
                 </div>
             </div>
-            <div class="active-premise-management">
+            <div class="active-premise-management" id="active-premise-management">
                 <h2 class="sub-header">楼盘管理</h2>
 
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
                         <tr>
+                            <th>序号</th>
                             <th>楼盘编号</th>
                             <th>楼盘名称</th>
                             <th>操作</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach var="item" items="${projects}">
+                        <c:forEach var="item" items="${projects}" varStatus="index">
                             <tr>
+                                <td>${index.index + 1}</td>
                                 <td>${item.projectId}</td>
                                 <td>${item.projectName}</td>
-                                <td>修改｜删除</td>
+                                <td>
+                                    <form class="delete-premise" action="${path.concat('/neforon/draw')}" method="post">
+                                        <input type="hidden" name="projectId" value="${item.projectId}"/>
+                                        <input type="submit" class="btn btn-link btn-success" value="删除"/>
+                                    </form>
+                                </td>
                             </tr>
                         </c:forEach>
                         </tbody>
@@ -102,7 +109,7 @@
                 </div>
             </div>
 
-            <div class="create-new-premise">
+            <div class="create-new-premise" id="create-new-premise">
                 <h2 class="sub-header">添加楼盘</h2>
 
                 <form action="${path.concat('/neforon/create')}" method="post">
@@ -117,24 +124,28 @@
 
             </div>
 
-            <div class="history-premise">
+            <div class="history-premise" id="history-premise">
                 <h2 class="sub-header">历史楼盘</h2>
 
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
                         <tr>
+                            <th>序号</th>
                             <th>楼盘编号</th>
                             <th>楼盘名称</th>
                             <th>操作</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td>查看数据</td>
-                        </tr>
+                        <c:forEach var="item" items="${histories}" varStatus="index">
+                            <tr>
+                                <td>${index.index + 1}</td>
+                                <td>${item.projectId}</td>
+                                <td>${item.projectName}</td>
+                                <td>查看数据</td>
+                            </tr>
+                        </c:forEach>
                         </tbody>
                     </table>
                     <br/>
@@ -142,13 +153,14 @@
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
-    <script src="${path.concat('/material/js/bootstrap.min.js')}"></script>
-    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-    <script src="${path.concat('/material/js/holder.js')}"></script>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+<script src="${path.concat('/material/js/bootstrap.min.js')}"></script>
+<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+<script src="${path.concat('/material/js/holder.js')}"></script>
 </body>
 </html>

@@ -9,9 +9,13 @@ import java.util.List;
  * Created by sunshine on 4/12/15.
  */
 public interface ProjectDao {
-    public ProjectVo selectProjectById(String projectId);
+    public ProjectVo selectActiveProjectById(String projectId);
 
     public boolean insertProject(Project project);
 
     public List<Project> selectActiveProjects();
+
+    public boolean deleteProjectById(String projectId);
+
+    public List<Project> selectDrawProjects();
 }

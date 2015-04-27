@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class ProjectDaoImpl extends BaseDao implements ProjectDao {
     @Override
-    public ProjectVo selectProjectById(String projectId) {
+    public ProjectVo selectActiveProjectById(String projectId) {
         return sqlSession.selectOne("project.selectProject", projectId);
     }
 
@@ -28,6 +28,16 @@ public class ProjectDaoImpl extends BaseDao implements ProjectDao {
 
     @Override
     public List<Project> selectActiveProjects() {
-        return sqlSession.selectList("project.selectActiveProject");
+        return sqlSession.selectList("project.selectActiveProjects");
+    }
+
+    @Override
+    public boolean deleteProjectById(String projectId) {
+        return (sqlSession.delete("project.deleteProject", projectId) != 0) ? true : false;
+    }
+
+    @Override
+    public List<Project> selectDrawProjects() {
+        return sqlSession.selectList("project.selectDrawProjects");
     }
 }

@@ -14,9 +14,9 @@ public class ProjectFacadeImpl implements ProjectFacade {
     private ProjectService projectService;
 
     @Override
-    public ResultData queryProject(String projectId) {
+    public ResultData queryActiveProject(String projectId) {
         ResultData result = new ResultData();
-        result = projectService.queryProjectById(projectId);
+        result = projectService.queryActiveProjectById(projectId);
         return result;
     }
 
@@ -31,6 +31,20 @@ public class ProjectFacadeImpl implements ProjectFacade {
     public ResultData queryActiveProjects() {
         ResultData result = new ResultData();
         result = projectService.queryActiveProjects();
+        return result;
+    }
+
+    @Override
+    public ResultData drawProject(String projectId) {
+        ResultData result = new ResultData();
+        result = projectService.drawProjectById(projectId);
+        return result;
+    }
+
+    @Override
+    public ResultData queryHistoryProjects() {
+        ResultData result =  new ResultData();
+        result = projectService.queryHistoryProjects();
         return result;
     }
 }

@@ -18,9 +18,9 @@ public class ProjectServiceImpl implements ProjectService {
     private ProjectDao projectDao;
 
     @Override
-    public ResultData queryProjectById(String projectId) {
+    public ResultData queryActiveProjectById(String projectId) {
         ResultData result = new ResultData();
-        ProjectVo vo = projectDao.selectProjectById(projectId);
+        ProjectVo vo = projectDao.selectActiveProjectById(projectId);
         if (vo == null) {
             result.setStatusCode(ResponseCode.MESSAGE_NULL);
         } else {
@@ -47,6 +47,32 @@ public class ProjectServiceImpl implements ProjectService {
     public ResultData queryActiveProjects() {
         ResultData result = new ResultData();
         List<Project> project = projectDao.selectActiveProjects();
+        if (project == null) {
+            result.setStatusCode(ResponseCode.MESSAGE_NULL);
+        } else {
+            result.setStatusCode(ResponseCode.MESSAGE_OK);
+            result.setData(project);
+        }
+        return result;
+    }
+
+    @Override
+    public ResultData drawProjectById(String projectId) {
+        ResultData result = new ResultData();
+        boolean status = projectDao.deleteProjectById(projectId);
+        if (status) {
+            result.setStatusCode(ResponseCode.MESSAGE_OK);
+            result.setData(status);
+        } else {
+            result.setStatusCode(ResponseCode.MESSAGE_NULL);
+        }
+        return result;
+    }
+
+    @Override
+    public ResultData queryHistoryProjects() {
+        ResultData result = new ResultData();
+        List<Project> project = projectDao.selectDrawProjects();
         if (project == null) {
             result.setStatusCode(ResponseCode.MESSAGE_NULL);
         } else {

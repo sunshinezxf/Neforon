@@ -68,10 +68,13 @@ public class PremiseController {
     public ModelAndView queryPremise(HttpServletRequest request, HttpServletResponse response, @PathVariable String projectId) {
         ModelAndView view = new ModelAndView();
         PremiseVo premiseVo = new PremiseVo();
-        ResultData projectMessage = projectFacade.queryProject(projectId);
+        ResultData projectMessage = projectFacade.queryActiveProject(projectId);
         if (projectMessage.getStatusCode() == ResponseCode.MESSAGE_OK) {
             ProjectVo project = projectMessage.getData();
             premiseVo.setProject(project);
+        } else {
+            view.setViewName("error");
+            return view;
         }
 
         ResultData qrCodeMessage = codeFacade.queryCode(projectId);

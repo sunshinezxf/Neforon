@@ -5,7 +5,7 @@
         <result property="projectName" column="project_name"></result>
     </resultMap>
 
-    <resultMap id="selectActiveProject" type="neforon.sunshine.model.Project">
+    <resultMap id="selectProject" type="neforon.sunshine.model.Project">
         <result property="id" column="id"></result>
         <result property="projectId" column="project_id"></result>
         <result property="projectName" column="project_name"></result>
@@ -15,7 +15,8 @@
     <select id="selectProject" resultMap="project">
         SELECT project_name
         FROM project
-        WHERE project_id=#{projectId};
+        WHERE project_id=#{projectId}
+        AND status=1;
     </select>
 
     <!-- 插入project记录 -->
@@ -25,9 +26,23 @@
     </insert>
 
     <!-- 查询当前活跃的楼盘项目 -->
-    <select id="selectActiveProject" resultMap="selectActiveProject">
+    <select id="selectActiveProjects" resultMap="selectProject">
         SELECT id, project_id, project_name
         FROM project
         WHERE status=1;
+    </select>
+
+    <!-- 从当前活跃的楼盘中删除一个楼盘的数据 -->
+    <update id="deleteProject">
+        UPDATE project
+        SET status=0
+        WHERE project_id=#{projectId};
+    </update>
+
+    <!-- 查询历史楼盘项目 -->
+    <select id="selectDrawProjects" resultMap="selectProject">
+        SELECT id, project_id, project_name
+        FROM project
+        WHERE status=0;
     </select>
 </mapper>

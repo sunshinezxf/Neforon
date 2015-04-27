@@ -87,6 +87,14 @@ public class ManageController {
             List<Project> projectList = projectsMessage.getData();
             view.addObject("projects", projectList);
         }
+
+        ResultData historyMessage = projectFacade.queryHistoryProjects();
+        if (historyMessage.getStatusCode() == ResponseCode.MESSAGE_NULL) {
+            view.setViewName("error");
+        } else {
+            List<Project> historyList = historyMessage.getData();
+            view.addObject("histories", historyList);
+        }
         view.setViewName("manage");
         return view;
     }
@@ -269,6 +277,37 @@ public class ManageController {
         view.setViewName("result");
         String url = IPTeller.getIPv4Address(projectId);
         view.addObject("url", url);
+        return view;
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = URLConst.NEFORON_DELETE)
+    public ModelAndView deletePremise(HttpServletRequest request, HttpServletResponse response) {
+        ModelAndView view = new ModelAndView();
+        String projectId = request.getParameter("projectId");
+        if (StringUtils.isEmpty(projectId)) {
+            view.setViewName("error");
+            return view;
+        }
+        projectFacade.drawProject(projectId);
+
+        ResultData projectsMessage = projectFacade.queryActiveProjects();
+        if (projectsMessage.getStatusCode() == ResponseCode.MESSAGE_NULL) {
+            view.setViewName("error");
+        } else {
+            List<Project> projectList = projectsMessage.getData();
+            view.addObject("projects", projectList);
+        }
+
+        ResultData historyMessage = projectFacade.queryHistoryProjects();
+        if (historyMessage.getStatusCode() == ResponseCode.MESSAGE_NULL) {
+            view.setViewName("error");
+        } else {
+            List<Project> historyList = historyMessage.getData();
+            view.addObject("histories", historyList);
+        }
+
+        view.setViewName("manage");
+
         return view;
     }
 }
