@@ -28,7 +28,7 @@ public class FileUpload {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        int index = temp.getPath().indexOf(PATH);
+        int index = temp.getPath().indexOf(SystemTeller.tellPath(PATH));
         return temp.getPath().substring(index);
     }
 
@@ -49,7 +49,7 @@ public class FileUpload {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        int index = temp.getPath().indexOf(PATH);
+        int index = temp.getPath().indexOf(SystemTeller.tellPath(PATH));
         return temp.getPath().substring(index);
     }
 
@@ -70,7 +70,7 @@ public class FileUpload {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        int index = temp.getPath().indexOf(PATH);
+        int index = temp.getPath().indexOf(SystemTeller.tellPath(PATH));
         return temp.getPath().substring(index);
     }
 }
