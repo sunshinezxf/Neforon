@@ -84,8 +84,8 @@
                         <thead>
                         <tr>
                             <th>序号</th>
-                            <th>楼盘编号</th>
                             <th>楼盘名称</th>
+                            <th>楼盘编号</th>
                             <th>操作</th>
                         </tr>
                         </thead>
@@ -93,8 +93,9 @@
                         <c:forEach var="item" items="${projects}" varStatus="index">
                             <tr>
                                 <td>${index.index + 1}</td>
-                                <td>${item.projectId}</td>
                                 <td>${item.projectName}</td>
+                                <td><a href="http://www.xiaolukaimen.cn:8080/neforon/premise/${item.projectId}"
+                                       target="_blank">${item.projectId}</a></td>
                                 <td>
                                     <form class="delete-premise" style="margin-bottom: 0px;"
                                           action="${path.concat('/neforon/draw')}" method="post">
