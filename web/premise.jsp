@@ -39,17 +39,7 @@
 
         <!-- 赚钱的方法可真多区域 -->
         <div class="approach-money">
-            <!-- xx喊你来赚钱区域 -->
-            <div class="slogan">
-                <div class="slogan-company">${premise.earnCompany}</div>
-                <div class="slogan-theme">${premise.earnSlogan}</div>
-            </div>
-            <!-- xx喊你来赚钱区域结束 -->
-            <div class="earn-money-details">
-                <c:forEach var="item" items="${premise.earnMethods}" varStatus="num">
-                    <div class="earn-money-method-desc"><c:out value="${item}"></c:out></div>
-                </c:forEach>
-            </div>
+            <img class="slogan-pic" src="${path}${premise.earnSloganPic}"/>
         </div>
         <!-- 赚钱的方法可真多区域结束 -->
 
@@ -69,9 +59,7 @@
 
         <!-- 优惠展示区域 -->
         <div class="coupon">
-            <h3 class="title">${premise.couponTitle}</h3>
-
-            <p class="detail">${premise.couponDetail}</p>
+            <h3 class="title">${premise.couponDetail}</h3>
         </div>
         <!-- 优惠区域结束-->
 

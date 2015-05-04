@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="earnmoney">
-    <resultMap id="earnmoney" type="neforon.sunshine.earnmoney.vo.EarnMoneyItemVo">
-        <result property="earnCompany" column="earncompany"></result>
-        <result property="earnSlogan" column="earnslogan"></result>
-        <result property="methodDesc" column="methoddesc"></result>
-        <result property="step" column="step"></result>
+    <resultMap id="earnmoney" type="neforon.sunshine.earnmoney.vo.EarnVo">
+        <result property="earnSloganPic" column="slogan_path"></result>
     </resultMap>
 
     <!-- 根据项目的id查询赚钱的方法 -->
     <select id="selectEarnMoney" resultMap="earnmoney">
-        SELECT earncompany, earnslogan, methoddesc, step
+        SELECT slogan_path
         FROM earn
         WHERE project_id=#{projectId};
     </select>
@@ -20,5 +17,12 @@
             keyProperty="id">
         INSERT INTO earn(project_id, earncompany, earnslogan, methoddesc, step)
         VALUES (#{projectId}, #{earnCompany}, #{earnSlogan}, #{methodDesc}, #{step});
+    </insert>
+
+    <!-- 插入宣传标语 -->
+    <insert id="insertEarnSlogan" parameterType="neforon.sunshine.model.EarnSlogan" useGeneratedKeys="true"
+            keyProperty="id">
+        INSERT INTO earn(project_id, slogan_path)
+        VALUES (#{projectId}, #{earnSloganPic});
     </insert>
 </mapper>

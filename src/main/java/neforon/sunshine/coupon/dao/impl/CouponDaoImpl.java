@@ -20,7 +20,6 @@ public class CouponDaoImpl extends BaseDao implements CouponDao {
     public boolean insertCoupon(Coupon coupon) {
         HashMap<String, Object> params = new HashMap<String, Object>();
         params.put("projectId", coupon.getProjectId());
-        params.put("couponTitle", coupon.getCouponTitle());
         params.put("couponDetail", coupon.getCouponDetail());
         return (sqlSession.insert("coupon.insertCoupon", params) != 0) ? true : false;
     }

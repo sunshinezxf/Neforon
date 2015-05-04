@@ -107,26 +107,9 @@
 
                         <div class="row">
                             <div class="col-xs-6 placeholder">
-                                <label>赚钱公司：</label>
-                                <input type="text" class="form-control alert-info" name="earnCompany"
-                                       placeholder="赚钱的公司标语"/>
+                                <label>赚钱宣传标语：</label>
+                                <input type="file" class="form-control alert-info" name="earnSlogan"/>
                                 <br/>
-                                <label>赚钱口号：</label>
-                                <input type="text" class="form-control" name="earnSlogan"
-                                       value="${template.earnSlogan}"/>
-                                <br/>
-                                <label>赚钱方法：</label>
-                                <input type="text" class="form-control" name="earnMethod1"
-                                       value="${template.earnMethods[0]}"/>
-                                <br/>
-                                <input type="text" class="form-control" name="earnMethod2"
-                                       value="${template.earnMethods[1]}"/>
-                                <br/>
-                                <input type="text" class="form-control" name="earnMethod3"
-                                       value="${template.earnMethods[2]}"/>
-                                <br/>
-                                <input type="text" class="form-control" name="earnMethod4"
-                                       value="${template.earnMethods[3]}"/>
                             </div>
                         </div>
                     </div>
@@ -164,9 +147,6 @@
 
                         <div class="row">
                             <div class="col-xs-6 placeholder">
-                                <label>优惠信息标题：</label>
-                                <input type="text" class="form-control alert-info" name="couponTitle"/>
-                                <br/>
                                 <label>优惠内容：</label>
                                 <input type="text" class="form-control alert-info" name="couponDetail"/>
                                 <br/>

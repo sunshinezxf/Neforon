@@ -3,7 +3,7 @@ package neforon.sunshine.vo;
 import neforon.sunshine.averageprice.vo.AveragePriceVo;
 import neforon.sunshine.buildingintro.vo.PremiseAdvantageVo;
 import neforon.sunshine.coupon.vo.CouponVo;
-import neforon.sunshine.earnmoney.vo.EarnMoneyVo;
+import neforon.sunshine.earnmoney.vo.EarnVo;
 import neforon.sunshine.guidance.vo.GuidanceVo;
 import neforon.sunshine.housetype.vo.HouseTypeVo;
 import neforon.sunshine.premiseview.vo.PremiseViewVo;
@@ -25,11 +25,7 @@ public class PremiseVo {
 
     protected List<String> guidanceDetail;
 
-    protected String earnCompany;
-
-    protected String earnSlogan;
-
-    protected List<String> earnMethods;
+    protected String earnSloganPic;
 
     protected String companyName;
 
@@ -38,8 +34,6 @@ public class PremiseVo {
     protected String activityStatus;
 
     protected String premisePic;
-
-    protected String couponTitle;
 
     protected String couponDetail;
 
@@ -60,10 +54,8 @@ public class PremiseVo {
         guidanceTitle = "";
         guidanceDetail = new ArrayList<String>();
 
-        /* 赚钱的方法可真多的标题、副标题、内容 */
-        earnCompany = "";
-        earnSlogan = "";
-        earnMethods = new ArrayList<String>();
+        /* 赚钱的方法可真多标语 */
+        earnSloganPic = "";
 
         /* 活动的楼盘 */
         companyName = "";
@@ -74,7 +66,6 @@ public class PremiseVo {
         premisePic = "";
 
         /* 优惠活动介绍 */
-        couponTitle = "";
         couponDetail = "";
 
         /*楼盘优势介绍*/
@@ -104,16 +95,8 @@ public class PremiseVo {
         }
     }
 
-    public void setEarnMoney(EarnMoneyVo earnMoney) {
-        earnCompany = earnMoney.getEarnCompany();
-        earnSlogan = earnMoney.getEarnSlogan();
-        String[] methods = earnMoney.getEarnMethods();
-        for (String item : methods) {
-            if (item == null || item.equals("")) {
-                continue;
-            }
-            earnMethods.add(item);
-        }
+    public void setEarnSlogan(EarnVo earn) {
+        earnSloganPic = earn.getEarnSloganPic();
     }
 
     public void setAveragePrice(AveragePriceVo averagePrice) {
@@ -127,7 +110,6 @@ public class PremiseVo {
     }
 
     public void setCoupon(CouponVo coupon) {
-        couponTitle = coupon.getCouponTitle();
         couponDetail = coupon.getCouponDetail();
     }
 
@@ -177,31 +159,7 @@ public class PremiseVo {
     public void setGuidanceDetail(List<String> guidanceDetail) {
         this.guidanceDetail = guidanceDetail;
     }
-
-    public String getEarnCompany() {
-        return earnCompany;
-    }
-
-    public void setEarnCompany(String earnCompany) {
-        this.earnCompany = earnCompany;
-    }
-
-    public String getEarnSlogan() {
-        return earnSlogan;
-    }
-
-    public void setEarnSlogan(String earnSlogan) {
-        this.earnSlogan = earnSlogan;
-    }
-
-    public List<String> getEarnMethods() {
-        return earnMethods;
-    }
-
-    public void setEarnMethods(List<String> earnMethods) {
-        this.earnMethods = earnMethods;
-    }
-
+    
     public String getCompanyName() {
         return companyName;
     }
@@ -234,14 +192,6 @@ public class PremiseVo {
         this.premisePic = premisePic;
     }
 
-    public String getCouponTitle() {
-        return couponTitle;
-    }
-
-    public void setCouponTitle(String couponTitle) {
-        this.couponTitle = couponTitle;
-    }
-
     public String getCouponDetail() {
         return couponDetail;
     }
@@ -272,5 +222,13 @@ public class PremiseVo {
 
     public void setProjectAddress(String projectAddress) {
         this.projectAddress = projectAddress;
+    }
+
+    public String getEarnSloganPic() {
+        return earnSloganPic;
+    }
+
+    public void setEarnSloganPic(String earnSloganPic) {
+        this.earnSloganPic = earnSloganPic;
     }
 }

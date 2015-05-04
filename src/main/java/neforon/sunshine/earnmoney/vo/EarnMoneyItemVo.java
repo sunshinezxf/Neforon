@@ -12,6 +12,8 @@ public class EarnMoneyItemVo {
 
     private Integer step;
 
+    private String earnPicPath;
+
     public EarnMoneyItemVo() {
 
     }
@@ -46,5 +48,13 @@ public class EarnMoneyItemVo {
 
     public void setStep(Integer step) {
         this.step = step;
+    }
+
+    public String getEarnPicPath() {
+        return earnPicPath;
+    }
+
+    public void setEarnPicPath(String earnPicPath) {
+        this.earnPicPath = earnPicPath;
     }
 }

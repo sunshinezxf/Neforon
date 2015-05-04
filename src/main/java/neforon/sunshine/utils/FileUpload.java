@@ -32,6 +32,27 @@ public class FileUpload {
         return temp.getPath().substring(index);
     }
 
+    public static String saveEarnSloganPic(MultipartFile file, String pathPrefix) {
+        String PATH = "/material/slogan";
+        StringBuilder builder = new StringBuilder(pathPrefix);
+        builder.append(PATH);
+        File directory = new File(builder.toString());
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
+        String suffix = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf('.'));
+        String name = UUID.randomUUID().toString() + suffix;
+        String completeName = directory + File.separator + name;
+        File temp = new File(completeName);
+        try {
+            file.transferTo(temp);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        int index = temp.getPath().indexOf(SystemTeller.tellPath(PATH));
+        return temp.getPath().substring(index);
+    }
+
     public static String savePremiseView(MultipartFile file, String pathPrefix) {
         String PATH = "/material/buildview";
         StringBuilder builder = new StringBuilder(pathPrefix);

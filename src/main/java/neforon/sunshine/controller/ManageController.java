@@ -178,25 +178,19 @@ public class ManageController {
             return view;
         }
 
-        /*获取赚钱方法*/
-        String earnCompany = request.getParameter("earnCompany");
-        String earnSlogan = request.getParameter("earnSlogan");
-        String earnMethod1 = request.getParameter("earnMethod1");
-        String earnMethod2 = request.getParameter("earnMethod2");
-        String earnMethod3 = request.getParameter("earnMethod3");
-        String earnMethod4 = request.getParameter("earnMethod4");
-
-        List<EarnItem> earns = new ArrayList<EarnItem>();
-        earns.add(new EarnItem(projectId, earnCompany, earnSlogan, earnMethod1, 1));
-        earns.add(new EarnItem(projectId, earnCompany, earnSlogan, earnMethod2, 2));
-        earns.add(new EarnItem(projectId, earnCompany, earnSlogan, earnMethod3, 3));
-        earns.add(new EarnItem(projectId, earnCompany, earnSlogan, earnMethod4, 4));
-        ResultData insertEarnMethod = earnMoneyFacade.addEarnMethods(earns);
-        if (insertEarnMethod.getStatusCode() == ResponseCode.MESSAGE_NULL) {
+        /*获取赚钱的宣传标语*/
+        MultipartFile earnSloganPic = ((MultipartRequest) request).getFile("earnSlogan");
+        String sloganPath = FileUpload.saveEarnSloganPic(earnSloganPic, context);
+        if (StringUtils.isEmpty(sloganPath)) {
             view.setViewName("error");
             return view;
         }
-
+        EarnSlogan slogan = new EarnSlogan(projectId, sloganPath);
+        ResultData insertEarnSloganMessage = earnMoneyFacade.addEarnSlogan(slogan);
+        if (insertEarnSloganMessage.getStatusCode() == ResponseCode.MESSAGE_NULL) {
+            view.setViewName("error");
+            return view;
+        }
 
         /*获取价钱*/
         String companyName = request.getParameter("companyName");
@@ -229,13 +223,12 @@ public class ManageController {
         }
 
         /*获取优惠设置*/
-        String couponTitle = request.getParameter("couponTitle");
         String couponDetail = request.getParameter("couponDetail");
-        if (StringUtils.isEmpty(couponTitle) || StringUtils.isEmpty(couponDetail)) {
+        if (StringUtils.isEmpty(couponDetail)) {
             view.setViewName("error");
             return view;
         }
-        Coupon coupon = new Coupon(projectId, couponTitle, couponDetail);
+        Coupon coupon = new Coupon(projectId, couponDetail);
         ResultData insertCouponMessage = couponFacade.addCoupon(coupon);
         if (insertCouponMessage.getStatusCode() == ResponseCode.MESSAGE_NULL) {
             view.setViewName("error");

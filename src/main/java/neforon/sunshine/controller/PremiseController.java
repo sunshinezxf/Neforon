@@ -7,7 +7,7 @@ import neforon.sunshine.buildingintro.vo.PremiseAdvantageVo;
 import neforon.sunshine.coupon.facade.CouponFacade;
 import neforon.sunshine.coupon.vo.CouponVo;
 import neforon.sunshine.earnmoney.facade.EarnMoneyFacade;
-import neforon.sunshine.earnmoney.vo.EarnMoneyVo;
+import neforon.sunshine.earnmoney.vo.EarnVo;
 import neforon.sunshine.guidance.facade.GuidanceFacade;
 import neforon.sunshine.guidance.vo.GuidanceVo;
 import neforon.sunshine.housetype.facade.HouseTypeFacade;
@@ -91,15 +91,15 @@ public class PremiseController {
             premiseVo.setGuidance((GuidanceVo) guidanceMessage.getData());
         }
 
-        ResultData earnMoneyMessage = earnMoneyFacade.queryEarnMoney(projectId);
-        if (earnMoneyMessage.getStatusCode() == ResponseCode.MESSAGE_OK) {
-            EarnMoneyVo earnMoney = earnMoneyMessage.getData();
-            premiseVo.setEarnMoney(earnMoney);
+        ResultData earnMessage = earnMoneyFacade.queryEarnSlogan(projectId);
+        if (earnMessage.getStatusCode() == ResponseCode.MESSAGE_OK) {
+            EarnVo earn = earnMessage.getData();
+            premiseVo.setEarnSlogan(earn);
         }
 
-        ResultData averagePirceMessage = averagePriceFacade.queryAveragePrice(projectId);
-        if (averagePirceMessage.getStatusCode() == ResponseCode.MESSAGE_OK) {
-            AveragePriceVo averagePrice = averagePirceMessage.getData();
+        ResultData averagePriceMessage = averagePriceFacade.queryAveragePrice(projectId);
+        if (averagePriceMessage.getStatusCode() == ResponseCode.MESSAGE_OK) {
+            AveragePriceVo averagePrice = averagePriceMessage.getData();
             premiseVo.setAveragePrice(averagePrice);
         }
 

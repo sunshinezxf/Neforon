@@ -1,20 +1,20 @@
 package neforon.sunshine.model;
 
 /**
- * Created by sunshine on 4/23/15.
+ * Created by sunshine on 5/4/15.
  */
-public class Coupon {
+public class EarnSlogan {
     private Integer id;
     private String projectId;
-    private String couponDetail;
+    private String earnSloganPic;
 
-    public Coupon() {
+    public EarnSlogan() {
 
     }
 
-    public Coupon(String projectId, String couponDetail) {
+    public EarnSlogan(String projectId, String earnSloganPic) {
         this.projectId = projectId;
-        this.couponDetail = couponDetail;
+        this.earnSloganPic = earnSloganPic;
     }
 
     public Integer getId() {
@@ -33,11 +33,11 @@ public class Coupon {
         this.projectId = projectId;
     }
 
-    public String getCouponDetail() {
-        return couponDetail;
+    public String getEarnSloganPic() {
+        return earnSloganPic;
     }
 
-    public void setCouponDetail(String couponDetail) {
-        this.couponDetail = couponDetail;
+    public void setEarnSloganPic(String earnSloganPic) {
+        this.earnSloganPic = earnSloganPic;
     }
 }
