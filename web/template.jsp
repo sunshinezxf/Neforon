@@ -158,14 +158,19 @@
                         <h2 class="sub-header">楼盘介绍</h2>
 
                         <div class="row">
-                            <div class="col-xs-6 placeholder">
-                                <input type="text" class="form-control alert-info" name="premiseAdvantage1"/>
-                                <br/>
-                                <input type="text" class="form-control alert-info" name="premiseAdvantage2"/>
-                                <br/>
-                                <input type="text" class="form-control alert-info" name="premiseAdvantage3"/>
-                                <br/>
-                                <input type="text" class="form-control alert-info" name="premiseAdvantage4"/>
+                            <div class="col-xs-10 placeholder">
+                                <c:forEach var="item" varStatus="status" begin="1" end="15">
+                                    <div class="row" id="premiseIndex${status.index}" style="">
+                                        <textarea type="text"
+                                                  class="form-control alert-info"
+                                                  id="premiseAdvantage${status.index}"
+                                                  name="premiseAdvantage${status.index}"
+                                                  style="width: 60%; margin: 0 20px;"></textarea>
+                                        <br/>
+                                    </div>
+                                </c:forEach>
+                                <a href="javascript:void(0);" class="btn btn-success" id="add-line">添加一行</a>
+                                <a href="javascript:void(0);" class="btn btn-danger" id="del-line">删除一行</a>
                             </div>
                         </div>
                     </div>
@@ -193,8 +198,10 @@
         </div>
     </div>
 </div>
-<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+
+<script src="${path.concat('/material/js/jquery-1.11.1.js')}"></script>
 <script src="${path.concat('/material/js/bootstrap.min.js')}"></script>
 <script src="${path.concat('/material/js/holder.js')}"></script>
+<script src="${path.concat('/material/js/template.js')}"></script>
 </body>
 </html>
