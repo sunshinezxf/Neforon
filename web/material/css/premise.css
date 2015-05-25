@@ -12,6 +12,9 @@ body {
         margin-top: 15px;
         width: 115px;
         height: 115px; }
+    body .page .ui-content .qr-code .qr-pic-description {
+      color: #FFFFFD;
+      font-size: 10px; }
     body .page .ui-content .qr-code .description {
       font-size: small;
       border-radius: 8px;
@@ -21,10 +24,10 @@ body {
       body .page .ui-content .qr-code .description h3 {
         color: #FFFFFD;
         margin: -10px auto 10px auto;
-        font-size: 14px;
+        font-size: 12px;
         font-weight: bold;
         background-color: #B8CD53;
-        width: 180px;
+        width: 190px;
         padding: 0 15px; }
       body .page .ui-content .qr-code .description p {
         margin: 0 auto;

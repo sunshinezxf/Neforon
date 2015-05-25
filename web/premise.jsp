@@ -23,6 +23,7 @@
             <div class="qr-pic-wrapper">
                 <img class="qr-pic" src="${path}${premise.qrCode}"/>
             </div>
+            <label class="qr-pic-description">项目二维码</label>
             <div class="description">
                 <h3>${premise.guidanceTitle}</h3>
 

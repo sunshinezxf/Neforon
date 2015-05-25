@@ -16,6 +16,10 @@ body {
             height: 115px;
           }
         }
+        .qr-pic-description{
+          color: #FFFFFD;
+          font-size: 10px;
+        }
         .description {
           font-size: small;
           border-radius: 8px;
@@ -25,10 +29,10 @@ body {
           h3 {
             color: #FFFFFD;
             margin: -10px auto 10px auto;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: bold;
             background-color: #B8CD53;
-            width: 180px;
+            width: 190px;
             padding: 0 15px;
           }
           p {
