@@ -237,16 +237,18 @@ public class ManageController {
 
 
         /*楼盘介绍*/
-        String advantage1 = request.getParameter("premiseAdvantage1");
-        String advantage2 = request.getParameter("premiseAdvantage2");
-        String advantage3 = request.getParameter("premiseAdvantage3");
-        String advantage4 = request.getParameter("premiseAdvantage4");
 
         List<PremiseAdvantageItem> premiseAdvantages = new ArrayList<PremiseAdvantageItem>();
-        premiseAdvantages.add(new PremiseAdvantageItem(projectId, advantage1, 1));
-        premiseAdvantages.add(new PremiseAdvantageItem(projectId, advantage2, 2));
-        premiseAdvantages.add(new PremiseAdvantageItem(projectId, advantage3, 3));
-        premiseAdvantages.add(new PremiseAdvantageItem(projectId, advantage4, 4));
+        for (int i = 1; i < 15; i++) {
+            StringBuffer parameter = new StringBuffer("premiseAdvantage");
+            parameter.append(i);
+            String advantage = request.getParameter(parameter.toString());
+            if (advantage != null && !advantage.equals("") && !advantage.trim().equals("")) {
+                premiseAdvantages.add(new PremiseAdvantageItem(projectId, advantage, i));
+            } else {
+                break;
+            }
+        }
 
         ResultData insertPremiseAdvantageMessage = premiseAdvantageFacade.addPremiseAdvantage(premiseAdvantages);
         if (insertPremiseAdvantageMessage.getStatusCode() == ResponseCode.MESSAGE_NULL) {

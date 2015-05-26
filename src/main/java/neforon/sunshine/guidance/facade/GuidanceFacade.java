@@ -12,4 +12,6 @@ public interface GuidanceFacade {
     public ResultData queryGuidance(String projectId);
 
     public ResultData addGuidance(List<GuidanceItem> guidances);
+
+    public ResultData modifyGuidance(List<GuidanceItem> guidances);
 }

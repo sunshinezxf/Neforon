@@ -48,4 +48,11 @@ public class GuidanceServiceImpl implements GuidanceService {
         result.setStatusCode(ResponseCode.MESSAGE_OK);
         return result;
     }
+
+    @Override
+    public ResultData modifyGuidances(List<GuidanceItem> guidances) {
+        ResultData result = new ResultData();
+
+        return result;
+    }
 }

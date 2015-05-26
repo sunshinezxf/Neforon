@@ -12,4 +12,6 @@ public interface GuidanceService {
     public ResultData queryQRGuidanceById(String projectId);
 
     public ResultData addQRGuidances(List<GuidanceItem> guidances);
+
+    public ResultData modifyGuidances(List<GuidanceItem> guidances);
 }
