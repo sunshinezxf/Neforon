@@ -13,7 +13,11 @@ import java.util.HashMap;
 public class PremiseViewDaoImpl extends BaseDao implements PremiseViewDao {
     @Override
     public PremiseViewVo selectPremiseViewById(String projectId) {
-        return sqlSession.selectOne("premiseview.selectPremiseView", projectId);
+        try {
+            return sqlSession.selectOne("premiseview.selectPremiseView", projectId);
+        } catch (Exception e) {
+            return sqlSession.selectOne("premiseview.selectPremiseView", projectId);
+        }
     }
 
     @Override
@@ -21,6 +25,10 @@ public class PremiseViewDaoImpl extends BaseDao implements PremiseViewDao {
         HashMap<String, Object> params = new HashMap<String, Object>();
         params.put("projectId", view.getProjectId());
         params.put("premiseViewPath", view.getPremiseViewPath());
-        return (sqlSession.insert("premiseview.insertPremise", params) != 0) ? true : false;
+        try {
+            return (sqlSession.insert("premiseview.insertPremise", params) != 0) ? true : false;
+        } catch (Exception e) {
+            return (sqlSession.insert("premiseview.insertPremise", params) != 0) ? true : false;
+        }
     }
 }

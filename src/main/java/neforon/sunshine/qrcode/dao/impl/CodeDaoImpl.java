@@ -12,7 +12,11 @@ import java.util.HashMap;
 public class CodeDaoImpl extends BaseDao implements CodeDao {
     @Override
     public QRCodeVo selectQRCodeById(String projectId) {
-        return sqlSession.selectOne("qrcode.selectProject", projectId);
+        try {
+            return sqlSession.selectOne("qrcode.selectProject", projectId);
+        } catch (Exception e) {
+            return sqlSession.selectOne("qrcode.selectProject", projectId);
+        }
     }
 
     @Override
@@ -20,6 +24,10 @@ public class CodeDaoImpl extends BaseDao implements CodeDao {
         HashMap<String, String> params = new HashMap<String, String>();
         params.put("projectId", projectId);
         params.put("qrPath", qrPath);
-        return (sqlSession.insert("qrcode.insertProject", params) != 0) ? true : false;
+        try {
+            return (sqlSession.insert("qrcode.insertProject", params) != 0) ? true : false;
+        } catch (Exception e) {
+            return (sqlSession.insert("qrcode.insertProject", params) != 0) ? true : false;
+        }
     }
 }

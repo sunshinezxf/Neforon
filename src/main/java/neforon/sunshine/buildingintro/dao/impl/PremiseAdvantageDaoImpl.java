@@ -14,7 +14,11 @@ import java.util.List;
 public class PremiseAdvantageDaoImpl extends BaseDao implements PremiseAdvantageDao {
     @Override
     public List<PremiseAdvantageItemVo> selectPremiseAdvantageById(String projectId) {
-        return sqlSession.selectList("premiseadvantage.selectPremiseAdvantage", projectId);
+        try {
+            return sqlSession.selectList("premiseadvantage.selectPremiseAdvantage", projectId);
+        }catch (Exception e) {
+            return sqlSession.selectList("premiseadvantage.selectPremiseAdvantage", projectId);
+        }
     }
 
     @Override
@@ -23,6 +27,10 @@ public class PremiseAdvantageDaoImpl extends BaseDao implements PremiseAdvantage
         params.put("projectId", item.getProjectId());
         params.put("advantage", item.getAdvantage());
         params.put("step", item.getStep());
-        return (sqlSession.insert("premiseadvantage.insertPremiseAdvantageItem", params) != 0) ? true : false;
+        try {
+            return (sqlSession.insert("premiseadvantage.insertPremiseAdvantageItem", params) != 0) ? true : false;
+        }catch (Exception e) {
+            return (sqlSession.insert("premiseadvantage.insertPremiseAdvantageItem", params) != 0) ? true : false;
+        }
     }
 }

@@ -14,7 +14,11 @@ public class AveragePriceDaoImpl extends BaseDao implements AveragePriceDao {
 
     @Override
     public AveragePriceVo selectAveragePriceById(String projectId) {
-        return sqlSession.selectOne("price.selectAvgPrice", projectId);
+        try {
+            return sqlSession.selectOne("price.selectAvgPrice", projectId);
+        }catch (Exception e) {
+            return sqlSession.selectOne("price.selectAvgPrice", projectId);
+        }
     }
 
     @Override
@@ -24,6 +28,10 @@ public class AveragePriceDaoImpl extends BaseDao implements AveragePriceDao {
         params.put("companyName", price.getCompanyName());
         params.put("avgPrice", price.getAvgPrice());
         params.put("activityState", price.getActivityState());
-        return (sqlSession.insert("price.insertAvgPrice", params) != 0) ? true : false;
+        try {
+            return (sqlSession.insert("price.insertAvgPrice", params) != 0) ? true : false;
+        }catch (Exception e) {
+            return (sqlSession.insert("price.insertAvgPrice", params) != 0) ? true : false;
+        }
     }
 }

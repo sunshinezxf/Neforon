@@ -13,7 +13,11 @@ import java.util.HashMap;
 public class CouponDaoImpl extends BaseDao implements CouponDao {
     @Override
     public CouponVo selectCouponById(String projectId) {
-        return sqlSession.selectOne("coupon.selectCoupon", projectId);
+        try {
+            return sqlSession.selectOne("coupon.selectCoupon", projectId);
+        }catch (Exception e) {
+            return sqlSession.selectOne("coupon.selectCoupon", projectId);
+        }
     }
 
     @Override
@@ -21,6 +25,10 @@ public class CouponDaoImpl extends BaseDao implements CouponDao {
         HashMap<String, Object> params = new HashMap<String, Object>();
         params.put("projectId", coupon.getProjectId());
         params.put("couponDetail", coupon.getCouponDetail());
-        return (sqlSession.insert("coupon.insertCoupon", params) != 0) ? true : false;
+        try {
+            return (sqlSession.insert("coupon.insertCoupon", params) != 0) ? true : false;
+        }catch (Exception e) {
+            return (sqlSession.insert("coupon.insertCoupon", params) != 0) ? true : false;
+        }
     }
 }

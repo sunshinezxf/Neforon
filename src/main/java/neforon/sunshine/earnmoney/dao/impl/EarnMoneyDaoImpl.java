@@ -21,12 +21,20 @@ public class EarnMoneyDaoImpl extends BaseDao implements EarnMoneyDao {
         params.put("earnSlogan", item.getEarnSlogan());
         params.put("methodDesc", item.getMethodDesc());
         params.put("step", item.getStep());
-        return (sqlSession.insert("earnmoney.insertEarnItem", params) != 0) ? true : false;
+        try {
+            return (sqlSession.insert("earnmoney.insertEarnItem", params) != 0) ? true : false;
+        } catch (Exception e) {
+            return (sqlSession.insert("earnmoney.insertEarnItem", params) != 0) ? true : false;
+        }
     }
 
     @Override
     public EarnVo selectEarnSlogan(String projectId) {
-        return sqlSession.selectOne("earnmoney.selectEarnMoney", projectId);
+        try {
+            return sqlSession.selectOne("earnmoney.selectEarnMoney", projectId);
+        } catch (Exception e) {
+            return sqlSession.selectOne("earnmoney.selectEarnMoney", projectId);
+        }
     }
 
     @Override
@@ -34,6 +42,10 @@ public class EarnMoneyDaoImpl extends BaseDao implements EarnMoneyDao {
         HashMap<String, Object> params = new HashMap<String, Object>();
         params.put("projectId", slogan.getProjectId());
         params.put("earnSloganPic", slogan.getEarnSloganPic());
-        return (sqlSession.insert("earnmoney.insertEarnSlogan", params) != 0) ? true : false;
+        try {
+            return (sqlSession.insert("earnmoney.insertEarnSlogan", params) != 0) ? true : false;
+        } catch (Exception e) {
+            return (sqlSession.insert("earnmoney.insertEarnSlogan", params) != 0) ? true : false;
+        }
     }
 }

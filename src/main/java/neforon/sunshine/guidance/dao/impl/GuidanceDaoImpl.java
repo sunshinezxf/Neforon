@@ -14,7 +14,11 @@ public class GuidanceDaoImpl extends BaseDao implements GuidanceDao {
 
     @Override
     public List<GuidanceItemVo> selectQRGuidanceById(String projectId) {
-        return sqlSession.selectList("guidance.selectGuidance", projectId);
+        try {
+            return sqlSession.selectList("guidance.selectGuidance", projectId);
+        } catch (Exception e) {
+            return sqlSession.selectList("guidance.selectGuidance", projectId);
+        }
     }
 
     @Override
@@ -24,6 +28,10 @@ public class GuidanceDaoImpl extends BaseDao implements GuidanceDao {
         params.put("guidanceTitle", guidanceTitle);
         params.put("guidanceDetail", guidanceDetail);
         params.put("step", step);
-        return (sqlSession.insert("guidance.insertGuidanceItem", params) != 0) ? true : false;
+        try {
+            return (sqlSession.insert("guidance.insertGuidanceItem", params) != 0) ? true : false;
+        } catch (Exception e) {
+            return (sqlSession.insert("guidance.insertGuidanceItem", params) != 0) ? true : false;
+        }
     }
 }
