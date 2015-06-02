@@ -34,4 +34,14 @@ public class GuidanceDaoImpl extends BaseDao implements GuidanceDao {
             return (sqlSession.insert("guidance.insertGuidanceItem", params) != 0) ? true : false;
         }
     }
+
+    @Override
+    public boolean updateGuidanceItem(String projectId, String guidanceTitle, String guidanceDetail, Integer step) {
+        HashMap<String, Object> params = new HashMap<String, Object>();
+        params.put("projectId", projectId);
+        params.put("guidanceTitle", guidanceTitle);
+        params.put("guidanceDetail", guidanceDetail);
+        params.put("step", step);
+        return false;
+    }
 }

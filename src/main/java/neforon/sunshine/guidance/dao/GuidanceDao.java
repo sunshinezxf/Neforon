@@ -13,4 +13,6 @@ public interface GuidanceDao {
     public List<GuidanceItemVo> selectQRGuidanceById(String projectId);
 
     public boolean insertGuidanceItem(String projectId, String guidanceTitle, String guidanceDetail, Integer step);
+
+    public boolean updateGuidanceItem(String projectId, String guidanceTitle, String guidanceDetail, Integer step);
 }
