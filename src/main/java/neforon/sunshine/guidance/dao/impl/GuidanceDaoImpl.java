@@ -42,6 +42,6 @@ public class GuidanceDaoImpl extends BaseDao implements GuidanceDao {
         params.put("guidanceTitle", guidanceTitle);
         params.put("guidanceDetail", guidanceDetail);
         params.put("step", step);
-        return false;
+        return (sqlSession.update("guidance.updateGuidanceItem", params) != 0) ? true : false;
     }
 }
