@@ -40,7 +40,7 @@ public class GuidanceFacadeImpl implements GuidanceFacade {
     @Override
     public ResultData modifyGuidance(List<GuidanceItem> guidances) {
         ResultData result = new ResultData();
-
+        result = guidanceService.modifyGuidances(guidances);
         return result;
     }
 

@@ -52,7 +52,14 @@ public class GuidanceServiceImpl implements GuidanceService {
     @Override
     public ResultData modifyGuidances(List<GuidanceItem> guidances) {
         ResultData result = new ResultData();
-
+        for (GuidanceItem item : guidances) {
+            boolean status = guidanceDao.updateGuidanceItem(item.getProjectId(), item.getGuidanceTitle(), item.getGuidanceDetail(), item.getStep());
+            if (!status) {
+                result.setStatusCode(ResponseCode.MESSAGE_NULL);
+                return result;
+            }
+        }
+        result.setStatusCode(ResponseCode.MESSAGE_OK);
         return result;
     }
 }
