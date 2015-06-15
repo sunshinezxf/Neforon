@@ -21,4 +21,11 @@
         VALUES (#{projectId}, #{guidanceTitle}, #{guidanceDetail}, #{step});
     </insert>
 
+    <!-- 更新用户扫码步骤的内容 -->
+    <update id="updateGuidanceItem" parameterType="java.util.HashMap">
+        UPDATE guidance
+        SET guidance_title=#{guidanceTitle},
+            guidance_detail=#{guidanceDetail}
+        WHERE project_id=#{projectId} AND step=#{step};
+    </update>
 </mapper>
