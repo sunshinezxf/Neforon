@@ -86,7 +86,8 @@
                             <th>序号</th>
                             <th>楼盘名称</th>
                             <th>楼盘编号</th>
-                            <th>操作</th>
+                            <th>删除</th>
+                            <th>修改</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -101,6 +102,12 @@
                                           action="${path.concat('/neforon/draw')}" method="post">
                                         <input type="hidden" name="projectId" value="${item.projectId}"/>
                                         <input type="submit" class="btn btn-link btn-success" value="删除"/>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form class="modify-premise" style="margin-bottom: 0px;" action="${path.concat('/neforon/modify')}" method="post">
+                                        <input type="hidden" name="projectId" value="${item.projectId}"/>
+                                        <input type="submit" class="btn btn-link btn-success" value="修改" />
                                     </form>
                                 </td>
                             </tr>

@@ -304,4 +304,10 @@ public class ManageController {
         view.setViewName("manage");
         return view;
     }
+
+    @RequestMapping(method = RequestMethod.POST, value = URLConst.NEFORON_MODIFY)
+    public ModelAndView modifyPremise(HttpServletRequest request, HttpServletResponse response) {
+        ModelAndView view = new ModelAndView();
+        return view;
+    }
 }
